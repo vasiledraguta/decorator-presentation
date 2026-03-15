@@ -8,27 +8,24 @@ export function DefinitionSlide() {
   return (
     <SlideLayout slideNumber={5} sectionLabel="THEORY">
       <div className="flex h-full flex-col justify-center gap-10">
-        <h2 className="slide-enter text-5xl font-bold text-accent">
-          Decorator Pattern
-        </h2>
-        <div className="slide-enter-delay-1 rounded-xl border-l-4 border-accent bg-accent-light/50 px-10 py-8">
-          <p className="mb-3 text-base font-bold uppercase tracking-wider text-accent">
+        <h2 className="slide-enter text-accent text-5xl font-bold">Decorator Pattern</h2>
+        <div className="slide-enter-delay-1 border-accent bg-accent-light/50 rounded-xl border-l-4 px-10 py-8">
+          <p className="text-accent mb-3 text-base font-bold tracking-wider uppercase">
             Definition
           </p>
-          <p className="text-2xl leading-relaxed text-text">
-            The Decorator is a structural design pattern that attaches new
-            behaviors to objects by placing them inside special wrapper objects
-            that contain those behaviors.
+          <p className="text-text text-2xl leading-relaxed">
+            The Decorator is a structural design pattern that attaches new behaviors to objects by
+            placing them inside special wrapper objects that contain those behaviors.
           </p>
         </div>
-        <ul className="slide-enter-delay-2 flex flex-col gap-6 text-2xl text-text-muted">
+        <ul className="slide-enter-delay-2 text-text-muted flex flex-col gap-6 text-2xl">
           {[
             "Decorators implement the same interface as the object they wrap",
             "You can stack multiple decorators on top of each other",
             "Behavior is added without modifying the original class",
           ].map((text) => (
             <li key={text} className="flex items-start gap-4">
-              <span className="mt-2.5 h-3.5 w-3.5 shrink-0 rounded-full bg-accent" />
+              <span className="bg-accent mt-2.5 h-3.5 w-3.5 shrink-0 rounded-full" />
               {text}
             </li>
           ))}
@@ -63,19 +60,15 @@ export function ComponentsSlide() {
   return (
     <SlideLayout slideNumber={6} sectionLabel="THEORY">
       <div className="flex h-full flex-col">
-        <h2 className="slide-enter mb-10 text-4xl font-bold text-accent">
-          Components
-        </h2>
+        <h2 className="slide-enter text-accent mb-10 text-4xl font-bold">Components</h2>
         <div className="grid flex-1 grid-cols-2 gap-6">
           {COMPONENTS.map((c, idx) => (
             <div
               key={c.label}
-              className={`flex flex-col items-center justify-center gap-4 rounded-xl border border-border-card bg-bg-card p-8 text-center ${stagger(idx)}`}
+              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
             >
-              <h3 className="text-3xl font-bold text-accent">{c.label}</h3>
-              <p className="text-xl leading-relaxed text-text-muted">
-                {c.desc}
-              </p>
+              <h3 className="text-accent text-3xl font-bold">{c.label}</h3>
+              <p className="text-text-muted text-xl leading-relaxed">{c.desc}</p>
             </div>
           ))}
         </div>
@@ -167,9 +160,7 @@ export function ClassDiagramSlide() {
   return (
     <SlideLayout slideNumber={7} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-4xl font-bold text-accent">
-          Class Diagram
-        </h2>
+        <h2 className="slide-enter text-accent text-4xl font-bold">Class Diagram</h2>
         <div className="slide-enter-delay-1 flex flex-1 items-center justify-center">
           <svg viewBox="0 0 700 340" className="h-full w-full">
             <UMLBox
@@ -303,12 +294,7 @@ export function ClassDiagramSlide() {
                 refY="3"
                 orient="auto"
               >
-                <path
-                  d="M0,0 L8,3 L0,6"
-                  fill="none"
-                  stroke="#f59e0b"
-                  strokeWidth="1.5"
-                />
+                <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
               </marker>
               <marker
                 id="arrowClosed"
@@ -356,15 +342,9 @@ export function CodeExampleSlide() {
   return (
     <SlideLayout slideNumber={8} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-4xl font-bold text-accent">
-          Code Example
-        </h2>
+        <h2 className="slide-enter text-accent text-4xl font-bold">Code Example</h2>
         <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock
-            code={CODE_EXAMPLE}
-            fontSize="text-base"
-            className="h-full overflow-hidden"
-          />
+          <CodeBlock code={CODE_EXAMPLE} fontSize="text-base" className="h-full overflow-hidden" />
         </div>
       </div>
     </SlideLayout>
@@ -374,28 +354,42 @@ export function CodeExampleSlide() {
 /* ── Slide 9 — Use Cases ───────────────────────────────────────── */
 
 const USE_CASES = [
-  { num: "01", title: "Runtime Behavior", desc: "Add behavior to individual objects at runtime without affecting other objects of the same class." },
-  { num: "02", title: "Combinable Features", desc: "When features can be mixed and matched independently — each decorator is its own unit." },
-  { num: "03", title: "Sealed / Legacy Code", desc: "When you cannot extend a class via inheritance because it is sealed, final, or from a third-party library." },
-  { num: "04", title: "Single Responsibility", desc: "When you want to keep each concern in its own class rather than creating a monolithic subclass." },
+  {
+    num: "01",
+    title: "Runtime Behavior",
+    desc: "Add behavior to individual objects at runtime without affecting other objects of the same class.",
+  },
+  {
+    num: "02",
+    title: "Combinable Features",
+    desc: "When features can be mixed and matched independently — each decorator is its own unit.",
+  },
+  {
+    num: "03",
+    title: "Sealed / Legacy Code",
+    desc: "When you cannot extend a class via inheritance because it is sealed, final, or from a third-party library.",
+  },
+  {
+    num: "04",
+    title: "Single Responsibility",
+    desc: "When you want to keep each concern in its own class rather than creating a monolithic subclass.",
+  },
 ];
 
 export function UseCasesSlide() {
   return (
     <SlideLayout slideNumber={9} sectionLabel="THEORY">
       <div className="flex h-full flex-col">
-        <h2 className="slide-enter mb-10 text-4xl font-bold text-accent">
-          When to Use It
-        </h2>
+        <h2 className="slide-enter text-accent mb-10 text-4xl font-bold">When to Use It</h2>
         <div className="grid flex-1 grid-cols-2 gap-6">
           {USE_CASES.map((uc, idx) => (
             <div
               key={uc.title}
-              className={`flex flex-col items-center justify-center gap-4 rounded-xl border border-border-card bg-bg-card p-8 text-center ${stagger(idx)}`}
+              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
             >
-              <span className="text-5xl font-extrabold text-accent/25">{uc.num}</span>
-              <h3 className="text-3xl font-bold text-text">{uc.title}</h3>
-              <p className="text-xl leading-relaxed text-text-muted">{uc.desc}</p>
+              <span className="text-accent/25 text-5xl font-extrabold">{uc.num}</span>
+              <h3 className="text-text text-3xl font-bold">{uc.title}</h3>
+              <p className="text-text-muted text-xl leading-relaxed">{uc.desc}</p>
             </div>
           ))}
         </div>
@@ -435,9 +429,7 @@ export function AdvDisadvSlide() {
   return (
     <SlideLayout slideNumber={10} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-4xl font-bold text-accent">
-          Advantages & Disadvantages
-        </h2>
+        <h2 className="slide-enter text-accent text-4xl font-bold">Advantages & Disadvantages</h2>
         <div className="grid flex-1 grid-cols-2 gap-8">
           {ADV_DISADV.map(({ title, color, Icon, items }, colIdx) => (
             <div
@@ -448,7 +440,7 @@ export function AdvDisadvSlide() {
               {items.map((text) => (
                 <div
                   key={text}
-                  className="flex items-start gap-4 text-2xl leading-snug text-text-muted"
+                  className="text-text-muted flex items-start gap-4 text-2xl leading-snug"
                 >
                   <Icon className={`mt-0.5 h-7 w-7 shrink-0 text-${color}`} />
                   <span>{text}</span>

@@ -12,8 +12,7 @@ const PATTERNS = [
   {
     name: "Proxy",
     intent: "Control access to an object",
-    mechanism:
-      "Same interface, but different intent (lazy-load, cache, security)",
+    mechanism: "Same interface, but different intent (lazy-load, cache, security)",
     highlight: false,
   },
   {
@@ -28,7 +27,7 @@ export function ComparisonSlide() {
   return (
     <SlideLayout slideNumber={17} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-4xl font-bold text-accent">
+        <h2 className="slide-enter text-accent text-4xl font-bold">
           Decorator vs Similar Patterns
         </h2>
         <div className="grid flex-1 grid-cols-3 gap-6">
@@ -36,31 +35,23 @@ export function ComparisonSlide() {
             <div
               key={p.name}
               className={`flex flex-col gap-5 rounded-xl border-2 p-7 ${stagger(idx, 1)} ${
-                p.highlight
-                  ? "border-accent bg-accent-light/60"
-                  : "border-border-card bg-bg-card"
+                p.highlight ? "border-accent bg-accent-light/60" : "border-border-card bg-bg-card"
               }`}
             >
-              <h3
-                className={`text-3xl font-bold ${
-                  p.highlight ? "text-accent" : "text-text"
-                }`}
-              >
+              <h3 className={`text-3xl font-bold ${p.highlight ? "text-accent" : "text-text"}`}>
                 {p.name}
               </h3>
               <div>
-                <p className="mb-2 text-base font-bold uppercase tracking-wider text-text-muted">
+                <p className="text-text-muted mb-2 text-base font-bold tracking-wider uppercase">
                   Intent
                 </p>
-                <p className="text-2xl text-text">{p.intent}</p>
+                <p className="text-text text-2xl">{p.intent}</p>
               </div>
               <div>
-                <p className="mb-2 text-base font-bold uppercase tracking-wider text-text-muted">
+                <p className="text-text-muted mb-2 text-base font-bold tracking-wider uppercase">
                   Mechanism
                 </p>
-                <p className="text-2xl leading-relaxed text-text">
-                  {p.mechanism}
-                </p>
+                <p className="text-text text-2xl leading-relaxed">{p.mechanism}</p>
               </div>
             </div>
           ))}
@@ -91,23 +82,21 @@ export function SummarySlide() {
   return (
     <SlideLayout slideNumber={18} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-4xl font-bold text-accent">Summary</h2>
+        <h2 className="slide-enter text-accent text-4xl font-bold">Summary</h2>
         <div className="grid flex-1 grid-cols-3 gap-6">
           {TAKEAWAYS.map((t, idx) => (
             <div
               key={t.heading}
-              className={`flex flex-col gap-4 rounded-xl border-l-4 border-accent bg-accent-light/40 p-7 ${stagger(idx, 1)}`}
+              className={`border-accent bg-accent-light/40 flex flex-col gap-4 rounded-xl border-l-4 p-7 ${stagger(idx, 1)}`}
             >
-              <h3 className="text-3xl font-bold text-accent">{t.heading}</h3>
-              <p className="text-2xl leading-relaxed text-text-muted">
-                {t.body}
-              </p>
+              <h3 className="text-accent text-3xl font-bold">{t.heading}</h3>
+              <p className="text-text-muted text-2xl leading-relaxed">{t.body}</p>
             </div>
           ))}
         </div>
-        <p className="slide-enter-delay-3 text-center text-base font-medium text-text-muted">
-          Used in React (HOCs, memo), Express (middleware), Java I/O streams,
-          Python decorators, and many more frameworks.
+        <p className="slide-enter-delay-3 text-text-muted text-center text-base font-medium">
+          Used in React (HOCs, memo), Express (middleware), Java I/O streams, Python decorators, and
+          many more frameworks.
         </p>
       </div>
     </SlideLayout>
@@ -127,14 +116,7 @@ function WrapSVG() {
         stroke="#f59e0b"
         strokeWidth="2.5"
       />
-      <circle
-        cx="100"
-        cy="100"
-        r="50"
-        fill="none"
-        stroke="#d97706"
-        strokeWidth="2"
-      />
+      <circle cx="100" cy="100" r="50" fill="none" stroke="#d97706" strokeWidth="2" />
       <circle
         cx="100"
         cy="100"
@@ -143,14 +125,7 @@ function WrapSVG() {
         stroke="rgba(245,158,11,0.4)"
         strokeWidth="1.5"
       />
-      <circle
-        cx="100"
-        cy="100"
-        r="90"
-        fill="none"
-        stroke="rgba(245,158,11,0.2)"
-        strokeWidth="1"
-      />
+      <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(245,158,11,0.2)" strokeWidth="1" />
     </svg>
   );
 }
@@ -162,9 +137,7 @@ export function ThankYouSlide() {
         <div className="slide-enter">
           <WrapSVG />
         </div>
-        <h2 className="slide-enter-delay-1 text-7xl font-extrabold text-text">
-          Thank You!
-        </h2>
+        <h2 className="slide-enter-delay-1 text-text text-7xl font-extrabold">Thank You!</h2>
       </div>
     </SlideLayout>
   );

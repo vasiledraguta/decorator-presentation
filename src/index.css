@@ -18,7 +18,9 @@
   --font-mono: "Space Mono", ui-monospace, "Cascadia Code", "Fira Code", Consolas, monospace;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -43,28 +45,32 @@ html, body, #root {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .slide-enter {
-  animation: slideIn 0.35s cubic-bezier(.215, .61, .355, 1) both;
+  animation: slideIn 0.35s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .slide-enter-delay-1 {
-  animation: slideIn 0.35s cubic-bezier(.215, .61, .355, 1) 0.08s both;
+  animation: slideIn 0.35s cubic-bezier(0.215, 0.61, 0.355, 1) 0.08s both;
 }
 
 .slide-enter-delay-2 {
-  animation: slideIn 0.35s cubic-bezier(.215, .61, .355, 1) 0.16s both;
+  animation: slideIn 0.35s cubic-bezier(0.215, 0.61, 0.355, 1) 0.16s both;
 }
 
 .slide-enter-delay-3 {
-  animation: slideIn 0.35s cubic-bezier(.215, .61, .355, 1) 0.24s both;
+  animation: slideIn 0.35s cubic-bezier(0.215, 0.61, 0.355, 1) 0.24s both;
 }
 
 .slide-fade {
-  animation: fadeIn 0.3s cubic-bezier(.215, .61, .355, 1) both;
+  animation: fadeIn 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

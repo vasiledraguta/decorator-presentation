@@ -53,20 +53,16 @@ export function HOCSlide() {
   return (
     <SlideLayout slideNumber={12} sectionLabel="REAL-WORLD: REACT">
       <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-4xl font-bold text-accent">
-          Higher-Order Components
-        </h2>
+        <h2 className="slide-enter text-accent text-4xl font-bold">Higher-Order Components</h2>
         <div className="flex flex-1 gap-10">
           <div className="flex w-1/2 flex-col gap-5">
             {HOC_POINTS.map((p, idx) => (
               <div
                 key={p.label}
-                className={`flex flex-1 flex-col justify-center rounded-xl border border-accent/20 bg-accent/5 px-10 py-6 ${stagger(idx)}`}
+                className={`border-accent/20 bg-accent/5 flex flex-1 flex-col justify-center rounded-xl border px-10 py-6 ${stagger(idx)}`}
               >
-                <h3 className="mb-2 text-2xl font-bold text-accent">{p.label}</h3>
-                <p className="text-lg leading-relaxed text-text-muted">
-                  {p.desc}
-                </p>
+                <h3 className="text-accent mb-2 text-2xl font-bold">{p.label}</h3>
+                <p className="text-text-muted text-lg leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -108,13 +104,11 @@ export function ConnectSlide() {
   return (
     <SlideLayout slideNumber={13} sectionLabel="REAL-WORLD: REACT">
       <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-4xl font-bold text-accent">
-          react-redux: connect()
-        </h2>
+        <h2 className="slide-enter text-accent text-4xl font-bold">react-redux: connect()</h2>
         <div className="slide-enter-delay-1 flex-1">
           <CodeBlock code={CONNECT_CODE} fontSize="text-base" className="h-full" />
         </div>
-        <p className="slide-enter-delay-2 text-center text-base font-medium text-text-muted">
+        <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
           Source: reduxjs/react-redux on GitHub
         </p>
       </div>

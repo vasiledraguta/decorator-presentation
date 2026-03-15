@@ -12,16 +12,44 @@ interface Token {
 }
 
 const KEYWORD_SET = new Set([
-  "class", "extends", "implements", "interface", "function", "return",
-  "new", "const", "let", "var", "export", "default", "import", "from",
-  "if", "else", "this", "super", "constructor", "protected", "private",
-  "public", "abstract", "readonly", "static", "void", "typeof", "instanceof",
-  "app", "use", "get", "req", "res", "next", "throw",
+  "class",
+  "extends",
+  "implements",
+  "interface",
+  "function",
+  "return",
+  "new",
+  "const",
+  "let",
+  "var",
+  "export",
+  "default",
+  "import",
+  "from",
+  "if",
+  "else",
+  "this",
+  "super",
+  "constructor",
+  "protected",
+  "private",
+  "public",
+  "abstract",
+  "readonly",
+  "static",
+  "void",
+  "typeof",
+  "instanceof",
+  "app",
+  "use",
+  "get",
+  "req",
+  "res",
+  "next",
+  "throw",
 ]);
 
-const TYPE_SET = new Set([
-  "string", "number", "boolean", "void", "null", "undefined", "any",
-]);
+const TYPE_SET = new Set(["string", "number", "boolean", "void", "null", "undefined", "any"]);
 
 function tokenize(line: string): Token[] {
   const tokens: Token[] = [];
@@ -100,7 +128,7 @@ export function CodeBlock({ code, className = "", fontSize = "text-base" }: Code
 
   return (
     <div
-      className={`overflow-auto rounded-xl border border-border-card bg-code-bg ${className}`}
+      className={`border-border-card bg-code-bg overflow-auto rounded-xl border ${className}`}
       style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.3)" }}
     >
       <pre className={`p-7 leading-relaxed ${fontSize} font-mono`}>

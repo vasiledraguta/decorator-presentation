@@ -74,13 +74,13 @@ export default function App() {
   const SlideComponent = SLIDES[current];
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-bg">
+    <div className="bg-bg relative h-screen w-screen overflow-hidden">
       <div className="grain-overlay" />
 
       <button
         onClick={handleExport}
         disabled={exporting}
-        className="absolute right-5 top-5 z-20 flex items-center gap-2 rounded-lg border border-border-card bg-bg-card px-4 py-2 text-sm font-medium text-text-muted transition-colors duration-200 ease hover:border-accent hover:text-accent disabled:opacity-50"
+        className="border-border-card bg-bg-card text-text-muted ease hover:border-accent hover:text-accent absolute top-5 right-5 z-20 flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors duration-200 disabled:opacity-50"
       >
         <Download className="h-4 w-4" />
         {exporting ? "Exporting\u2026" : "Export PPTX"}
@@ -94,17 +94,17 @@ export default function App() {
         <button
           onClick={prev}
           disabled={current === 0}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border-card bg-bg-card text-text-muted transition-colors duration-200 ease hover:border-accent hover:text-accent disabled:opacity-30"
+          className="border-border-card bg-bg-card text-text-muted ease hover:border-accent hover:text-accent flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-200 disabled:opacity-30"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
-        <span className="min-w-20 text-center text-sm font-medium tabular-nums text-text-muted">
+        <span className="text-text-muted min-w-20 text-center text-sm font-medium tabular-nums">
           {current + 1} / {SLIDES.length}
         </span>
         <button
           onClick={next}
           disabled={current === SLIDES.length - 1}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border-card bg-bg-card text-text-muted transition-colors duration-200 ease hover:border-accent hover:text-accent disabled:opacity-30"
+          className="border-border-card bg-bg-card text-text-muted ease hover:border-accent hover:text-accent flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-200 disabled:opacity-30"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

@@ -64,16 +64,14 @@ export function TitleSlide() {
     <SlideLayout slideNumber={1}>
       <div className="flex h-full items-center justify-between gap-16">
         <div className="flex flex-col gap-5">
-          <span className="slide-enter w-fit rounded-full border border-accent/30 bg-accent-light px-5 py-2 text-base font-semibold tracking-wide text-accent">
+          <span className="slide-enter border-accent/30 bg-accent-light text-accent w-fit rounded-full border px-5 py-2 text-base font-semibold tracking-wide">
             Structural Patterns
           </span>
-          <h1 className="slide-enter-delay-1 text-7xl font-extrabold leading-tight text-text">
+          <h1 className="slide-enter-delay-1 text-text text-7xl leading-tight font-extrabold">
             Decorator
           </h1>
-          <p className="slide-enter-delay-1 text-4xl font-light text-accent">
-            Design Pattern
-          </p>
-          <p className="slide-enter-delay-2 mt-6 text-xl text-text-muted">
+          <p className="slide-enter-delay-1 text-accent text-4xl font-light">Design Pattern</p>
+          <p className="slide-enter-delay-2 text-text-muted mt-6 text-xl">
             Presented by Șerban-George Foica, Goșa Bogdan, Draguța Vasile
           </p>
         </div>
@@ -116,7 +114,7 @@ export function TOCSlide() {
   return (
     <SlideLayout slideNumber={2}>
       <div className="flex h-full flex-col">
-        <h2 className="slide-enter mb-10 text-4xl font-bold text-accent">
+        <h2 className="slide-enter text-accent mb-10 text-4xl font-bold">
           <Layers className="mr-3 inline-block h-9 w-9" />
           Table of Contents
         </h2>
@@ -126,18 +124,14 @@ export function TOCSlide() {
             return (
               <div
                 key={item.num}
-                className={`flex flex-col items-center justify-center gap-4 rounded-xl border border-border-card bg-bg-card p-8 text-center ${stagger(idx)}`}
+                className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
               >
-                <span className="text-5xl font-extrabold text-accent/25">
-                  {item.num}
-                </span>
+                <span className="text-accent/25 text-5xl font-extrabold">{item.num}</span>
                 <div className="flex items-center gap-3">
-                  <Icon className="h-7 w-7 text-accent" />
-                  <span className="text-3xl font-bold text-text">
-                    {item.title}
-                  </span>
+                  <Icon className="text-accent h-7 w-7" />
+                  <span className="text-text text-3xl font-bold">{item.title}</span>
                 </div>
-                <span className="text-xl text-text-muted">{item.desc}</span>
+                <span className="text-text-muted text-xl">{item.desc}</span>
               </div>
             );
           })}

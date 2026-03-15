@@ -9,13 +9,5 @@ export {
   AdvDisadvSlide,
 } from "./Theory";
 export { ReactDividerSlide, HOCSlide, ConnectSlide } from "./ReactExample";
-export {
-  ExpressDividerSlide,
-  MiddlewareSlide,
-  ExpressCodeSlide,
-} from "./ExpressExample";
-export {
-  ComparisonSlide,
-  SummarySlide,
-  ThankYouSlide,
-} from "./Conclusions";
+export { ExpressDividerSlide, MiddlewareSlide, ExpressCodeSlide } from "./ExpressExample";
+export { ComparisonSlide, SummarySlide, ThankYouSlide } from "./Conclusions";
