@@ -9,7 +9,12 @@ export {
   AdvDisadvSlide,
 } from "./Theory";
 export { ReactDividerSlide, HOCSlide, ConnectSlide } from "./ReactExample";
-export { ExpressDividerSlide, MiddlewareSlide, ExpressCodeSlide } from "./ExpressExample";
+export {
+  ExpressDividerSlide,
+  MiddlewarePipelineSlide,
+  AuthDecoratorSlide,
+  PipelineStackingSlide,
+} from "./ExpressExample";
 export {
   JavaDividerSlide,
   FilterInputStreamSlide,

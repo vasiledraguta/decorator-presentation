@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 export function JavaDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={17}
+      slideNumber={18}
       sectionNum="05"
       title="Standard Library"
       subtitle="Java I/O Streams"
@@ -14,7 +14,7 @@ export function JavaDividerSlide() {
   );
 }
 
-/* ── Slide 18 — FilterInputStream ───────────────────────────── */
+/* ── Slide 19 — FilterInputStream ───────────────────────────── */
 
 const FILTER_INPUT_STREAM_CODE = `// Simplified from OpenJDK java.io.FilterInputStream
 public class FilterInputStream extends InputStream {
@@ -47,7 +47,7 @@ const FILTER_POINTS = [
 
 export function FilterInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={18} sectionLabel="JAVA I/O: FILTER">
+    <SlideLayout slideNumber={19} sectionLabel="JAVA I/O: FILTER">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Decorator Base</h2>
@@ -83,7 +83,7 @@ export function FilterInputStreamSlide() {
   );
 }
 
-/* ── Slide 19 — BufferedInputStream ──────────────────────────── */
+/* ── Slide 20 — BufferedInputStream ──────────────────────────── */
 
 const BUFFERED_INPUT_STREAM_CODE = `// Simplified from OpenJDK java.io.BufferedInputStream
 public class BufferedInputStream extends FilterInputStream {
@@ -119,7 +119,7 @@ const BUFFERED_POINTS = [
 
 export function BufferedInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={19} sectionLabel="JAVA I/O: CONCRETE">
+    <SlideLayout slideNumber={20} sectionLabel="JAVA I/O: CONCRETE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Concrete Decorator</h2>
@@ -131,7 +131,7 @@ export function BufferedInputStreamSlide() {
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={BUFFERED_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
             {/* Arrow pointing to 'super(in);' which is line 6 */}
-            <div className="absolute top-[175px] left-[620px] flex items-center gap-2">
+            <div className="absolute top-[175px] left-[280px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
               <span className="bg-accent/10 border-accent/20 rounded-md border px-3 py-1 text-sm font-bold text-accent whitespace-nowrap">
                 Passing up the Chain
@@ -155,7 +155,7 @@ export function BufferedInputStreamSlide() {
   );
 }
 
-/* ── Slide 20 — Real World Usage ─────────────────────────────── */
+/* ── Slide 21 — Real World Usage ─────────────────────────────── */
 
 const REAL_USAGE_CODE = `// How we actually use it in Java
 InputStream file = new FileInputStream("data.zip");
@@ -183,7 +183,7 @@ const USAGE_POINTS = [
 
 export function JavaUsageSlide() {
   return (
-    <SlideLayout slideNumber={20} sectionLabel="JAVA I/O: USAGE">
+    <SlideLayout slideNumber={21} sectionLabel="JAVA I/O: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage</h2>
