@@ -1,7 +1,6 @@
 import { SlideLayout } from "../components/SlideLayout";
 import { stagger } from "../components/stagger";
-import { CodeBlock } from "../components/CodeBlock";
-import { AlertTriangle, ArrowRight } from "lucide-react";
+import { AlertTriangle, ArrowRight, LayoutTemplate } from "lucide-react";
 
 const PROBLEMS = [
   {
@@ -10,7 +9,7 @@ const PROBLEMS = [
   },
   {
     label: "Explosion",
-    desc: "N features can produce up to 2\u207F subclasses — an exponential blowup.",
+    desc: "N features can produce up to 2ⁿ subclasses — an exponential blowup.",
   },
   {
     label: "Violation",
@@ -18,45 +17,47 @@ const PROBLEMS = [
   },
 ];
 
-const INHERITANCE_CODE = `class Coffee {
-  cost() { return 5; }
-}
-
-class MilkCoffee extends Coffee {
-  cost() { return super.cost() + 2; }
-}
-
-class SugarMilkCoffee extends MilkCoffee {
-  cost() { return super.cost() + 1; }
-}
-
-class WhipSugarMilkCoffee extends SugarMilkCoffee {
-  cost() { return super.cost() + 3; }
-}
-// ... and so on for every combination`;
-
 export function ProblemSlide() {
   return (
-    <SlideLayout slideNumber={3} sectionLabel="THE CORE PROBLEM">
-      <div className="flex h-full flex-col gap-8">
+    <SlideLayout slideNumber={3} sectionLabel="CONTEXT AND CORE PROBLEM">
+      <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent flex items-center gap-3 text-4xl font-bold">
           <AlertTriangle className="h-9 w-9" />
-          The Problem: Inheritance Explosion
+          Context and Core Problem
         </h2>
-        <div className="flex flex-1 gap-10">
-          <div className="flex w-1/2 flex-col gap-5">
+        <div className="flex flex-1 items-center gap-4">
+          <div className="flex w-[45%] flex-col gap-6">
+            <div className={`bg-bg-card border-border-card flex flex-col gap-4 rounded-xl border p-8 ${stagger(0, 1)}`}>
+              <h3 className="text-accent flex items-center gap-3 text-2xl font-bold">
+                <LayoutTemplate className="h-7 w-7" />
+                Graphical UI Toolkit
+              </h3>
+              <p className="text-text-muted text-xl leading-relaxed">
+                Imagine building a UI toolkit (like the classic GoF example) where we want to modify a UI component to add traits like a <span className="text-text font-bold">Border</span> or <span className="text-text font-bold">Scrolling</span> to it.
+              </p>
+            </div>
+            <div className={`border-red/20 bg-red/5 flex flex-col gap-4 rounded-xl border p-8 ${stagger(1, 1)}`}>
+              <h3 className="text-red text-2xl font-bold">The Inheritance Trap</h3>
+              <p className="text-text-muted text-lg leading-relaxed">
+                We quickly encounter the problem of not being able to combine these traits without statically implementing a rigid subclass (e.g., <code className="bg-red/10 text-red rounded px-2 py-1 font-mono text-base">BorderedScrollableComponent</code>).
+              </p>
+            </div>
+          </div>
+          
+          <div className="slide-enter-delay-2 flex w-[10%] justify-center">
+            <ArrowRight className="text-accent/50 h-16 w-16" />
+          </div>
+          
+          <div className="flex w-[45%] flex-col gap-5">
             {PROBLEMS.map((p, idx) => (
               <div
                 key={p.label}
-                className={`border-red/20 bg-red/5 flex flex-1 flex-col justify-center rounded-xl border px-10 py-8 ${stagger(idx, 1)}`}
+                className={`border-red/20 bg-red/5 flex flex-col justify-center rounded-xl border px-8 py-5 ${stagger(idx, 3)}`}
               >
-                <h3 className="text-red mb-2 text-2xl font-bold">{p.label}</h3>
-                <p className="text-text-muted text-xl leading-relaxed">{p.desc}</p>
+                <h3 className="text-red mb-1 text-xl font-bold">{p.label}</h3>
+                <p className="text-text-muted text-lg leading-relaxed">{p.desc}</p>
               </div>
             ))}
-          </div>
-          <div className="slide-enter-delay-2 flex w-1/2 flex-col">
-            <CodeBlock code={INHERITANCE_CODE} fontSize="text-lg" className="flex-1" />
           </div>
         </div>
       </div>
