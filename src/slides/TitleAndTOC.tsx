@@ -87,15 +87,15 @@ export function TitleSlide() {
 const TOC_ITEMS = [
   {
     num: "01",
-    title: "The Core Problem",
+    title: "Context & Core Problem",
     icon: Lightbulb,
-    desc: "Why inheritance falls short",
+    desc: "The UI Toolkit & the Inheritance Trap",
   },
   {
     num: "02",
     title: "Pattern Theory",
     icon: BookOpen,
-    desc: "Definition, components & diagrams",
+    desc: "Definition, Diagrams, Benefits & Use Cases",
   },
   {
     num: "03",

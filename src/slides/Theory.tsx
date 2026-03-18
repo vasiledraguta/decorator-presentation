@@ -1,5 +1,5 @@
 import { SlideLayout } from "../components/SlideLayout";
-import { CodeBlock } from "../components/CodeBlock";
+
 import { stagger } from "../components/stagger";
 import { CheckCircle, XCircle } from "lucide-react";
 
@@ -8,8 +8,17 @@ import { CheckCircle, XCircle } from "lucide-react";
 export function DefinitionSlide() {
   return (
     <SlideLayout slideNumber={5} sectionLabel="THEORY">
-      <div className="flex h-full flex-col justify-center gap-10">
-        <h2 className="slide-enter text-accent text-5xl font-bold">Decorator Pattern</h2>
+      <div className="relative flex h-full flex-col justify-center gap-10">
+        
+        <div className="slide-enter absolute top-6 right-12 w-[500px] overflow-hidden shadow-2xl border-[8px] border-white/10 bg-black/20 rotate-[6deg] rounded-2xl z-10">
+          <img 
+            src="/meme.jpg" 
+            alt="Decorator Pattern Meme" 
+            className="h-auto w-full object-cover rounded-xl shadow-inner"
+          />
+        </div>
+
+        <h2 className="slide-enter text-accent text-5xl font-bold pr-[580px]">Decorator Pattern</h2>
         <div className="slide-enter-delay-1 border-accent bg-accent-light/50 rounded-xl border-l-4 px-10 py-8">
           <p className="text-accent mb-3 text-base font-bold tracking-wider uppercase">
             Definition
@@ -36,47 +45,6 @@ export function DefinitionSlide() {
   );
 }
 
-/* ── Slide 6 — Components ──────────────────────────────────────── */
-
-const COMPONENTS = [
-  {
-    label: "Component Interface",
-    desc: "Declares the common interface for both wrappers and wrapped objects.",
-  },
-  {
-    label: "Concrete Component",
-    desc: "The original object being decorated; defines the base behavior that can be altered.",
-  },
-  {
-    label: "Base Decorator",
-    desc: "Holds a reference to the wrapped component and delegates all work to it.",
-  },
-  {
-    label: "Concrete Decorator",
-    desc: "Adds extra behavior before or after delegating to the wrapped component's methods.",
-  },
-];
-
-export function ComponentsSlide() {
-  return (
-    <SlideLayout slideNumber={6} sectionLabel="THEORY">
-      <div className="flex h-full flex-col">
-        <h2 className="slide-enter text-accent mb-10 text-4xl font-bold">Components</h2>
-        <div className="grid flex-1 grid-cols-2 gap-6">
-          {COMPONENTS.map((c, idx) => (
-            <div
-              key={c.label}
-              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
-            >
-              <h3 className="text-accent text-3xl font-bold">{c.label}</h3>
-              <p className="text-text-muted text-xl leading-relaxed">{c.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </SlideLayout>
-  );
-}
 
 /* ── Slide 7 — Class Diagram ───────────────────────────────────── */
 
@@ -162,54 +130,54 @@ export function ClassDiagramSlide() {
     <SlideLayout slideNumber={7} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent text-4xl font-bold">Class Diagram</h2>
-        <div className="slide-enter-delay-1 flex flex-1 items-center justify-center">
-          <svg viewBox="0 0 700 340" className="h-full w-full">
+        <div className="slide-enter-delay-1 flex min-h-0 flex-1 items-center justify-center">
+          <svg viewBox="0 0 660 340" className="max-h-full max-w-full object-contain">
             <UMLBox
-              x={260}
+              x={250}
               y={10}
-              w={180}
+              w={160}
               h={55}
-              title="Notifier"
+              title="Component"
               stereotype="«interface»"
-              fields={["+ send(msg: string): void"]}
+              fields={["+ draw(): void"]}
             />
             <UMLBox
-              x={80}
+              x={60}
               y={140}
-              w={170}
+              w={150}
               h={55}
-              title="BaseNotifier"
-              fields={["+ send(msg: string): void"]}
+              title="TextView"
+              fields={["+ draw(): void"]}
             />
             <UMLBox
-              x={440}
+              x={400}
               y={140}
-              w={180}
+              w={200}
               h={70}
-              title="BaseDecorator"
-              fields={["- wrappee: Notifier", "+ send(msg: string): void"]}
+              title="Decorator"
+              fields={["- wrappee: Component", "+ draw(): void"]}
             />
             <UMLBox
-              x={370}
+              x={310}
               y={270}
-              w={150}
+              w={160}
               h={50}
-              title="SMSDecorator"
-              fields={["+ send(msg: string)"]}
+              title="BorderDecorator"
+              fields={["+ draw(): void"]}
             />
             <UMLBox
-              x={540}
+              x={490}
               y={270}
-              w={150}
+              w={160}
               h={50}
-              title="SlackDecorator"
-              fields={["+ send(msg: string)"]}
+              title="ScrollDecorator"
+              fields={["+ draw(): void"]}
             />
 
             <line
-              x1={165}
+              x1={135}
               y1={140}
-              x2={300}
+              x2={290}
               y2={65}
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -217,7 +185,7 @@ export function ClassDiagramSlide() {
               markerEnd="url(#arrowOpen)"
             />
             <text
-              x={195}
+              x={190}
               y={96}
               fill="#9494a8"
               fontSize="9"
@@ -228,9 +196,9 @@ export function ClassDiagramSlide() {
             </text>
 
             <line
-              x1={530}
+              x1={500}
               y1={140}
-              x2={400}
+              x2={370}
               y2={65}
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -238,7 +206,7 @@ export function ClassDiagramSlide() {
               markerEnd="url(#arrowOpen)"
             />
             <text
-              x={462}
+              x={440}
               y={96}
               fill="#9494a8"
               fontSize="9"
@@ -249,7 +217,7 @@ export function ClassDiagramSlide() {
             </text>
 
             <path
-              d="M 620 155 C 660 155, 670 40, 440 35"
+              d="M 600 175 C 650 175, 650 35, 410 35"
               fill="none"
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -257,8 +225,8 @@ export function ClassDiagramSlide() {
               markerEnd="url(#arrowOpen)"
             />
             <text
-              x={618}
-              y={78}
+              x={615}
+              y={85}
               fill="#f59e0b"
               fontSize="10"
               fontWeight="700"
@@ -268,18 +236,18 @@ export function ClassDiagramSlide() {
             </text>
 
             <line
-              x1={445}
+              x1={390}
               y1={270}
-              x2={500}
+              x2={460}
               y2={210}
               stroke="#f59e0b"
               strokeWidth="1.5"
               markerEnd="url(#arrowClosed)"
             />
             <line
-              x1={615}
+              x1={570}
               y1={270}
-              x2={560}
+              x2={540}
               y2={210}
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -315,42 +283,7 @@ export function ClassDiagramSlide() {
   );
 }
 
-/* ── Slide 8 — Code Example ────────────────────────────────────── */
 
-const CODE_EXAMPLE = `interface Notifier {
-  send(msg: string): void;
-}
-class EmailNotifier implements Notifier {
-  send(msg: string) { console.log("Email:", msg); }
-}
-class NotifierDecorator implements Notifier {
-  constructor(protected wrappee: Notifier) {}
-  send(msg: string) { this.wrappee.send(msg); }
-}
-class SMSDecorator extends NotifierDecorator {
-  send(msg: string) { super.send(msg); console.log("SMS:", msg); }
-}
-class SlackDecorator extends NotifierDecorator {
-  send(msg: string) { super.send(msg); console.log("Slack:", msg); }
-}
-// Stack decorators freely:
-let notifier: Notifier = new EmailNotifier();
-notifier = new SMSDecorator(notifier);
-notifier = new SlackDecorator(notifier);
-notifier.send("Server is down!");`;
-
-export function CodeExampleSlide() {
-  return (
-    <SlideLayout slideNumber={8} sectionLabel="THEORY">
-      <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-accent text-4xl font-bold">Code Example</h2>
-        <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock code={CODE_EXAMPLE} fontSize="text-lg" className="h-full overflow-hidden" />
-        </div>
-      </div>
-    </SlideLayout>
-  );
-}
 
 /* ── Slide 9 — Use Cases ───────────────────────────────────────── */
 
@@ -389,76 +322,110 @@ const USE_CASES = [
 
 export function UseCasesSlide() {
   return (
-    <SlideLayout slideNumber={9} sectionLabel="THEORY">
+    <SlideLayout slideNumber={10} sectionLabel="THEORY">
       <div className="flex h-full flex-col">
-        <h2 className="slide-enter text-accent mb-8 text-4xl font-bold">When to Use It</h2>
-        <div className="grid flex-1 grid-cols-2 gap-5">
-          {USE_CASES.map((uc, idx) => (
-            <div
-              key={uc.title}
-              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-3 rounded-xl border p-6 text-center ${stagger(idx)}`}
-            >
-              <span className="text-accent/25 text-4xl font-extrabold">{uc.num}</span>
-              <h3 className="text-text text-2xl font-bold">{uc.title}</h3>
-              <p className="text-text-muted text-lg leading-relaxed">{uc.desc}</p>
-            </div>
-          ))}
+        <h2 className="slide-enter text-accent mb-6 text-4xl font-bold">When to Use It</h2>
+        <div className="flex flex-1 items-center justify-center px-8 pb-8">
+          <div className="grid grid-cols-3 gap-12 w-full max-w-[85rem]">
+            {USE_CASES.map((uc, idx) => (
+              <div
+                key={uc.title}
+                className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-5 rounded-2xl border-2 p-10 text-center shadow-xl transition-transform hover:-translate-y-2 ${stagger(idx)}`}
+              >
+                <span className="text-accent/25 text-5xl font-extrabold">{uc.num}</span>
+                <h3 className="text-text text-[1.65rem] font-bold leading-tight">{uc.title}</h3>
+                <p className="text-text-muted text-[1.25rem] leading-relaxed">{uc.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </SlideLayout>
   );
 }
 
-/* ── Slide 10 — Advantages & Disadvantages ─────────────────────── */
+/* ── Slide 10 — Key Benefits and Liabilities ─────────────────────── */
 
-const ADV_DISADV = [
+const BENEFITS_LIABILITIES = [
   {
-    title: "Advantages",
-    color: "green" as const,
-    Icon: CheckCircle,
+    type: "Benefit",
+    title: "More flexibility than static inheritance",
+    bg: "bg-green/5",
+    border: "border-green/20",
+    text: "text-green",
     items: [
-      "Add behavior without modifying existing code (Open/Closed Principle)",
-      "Each decorator focuses on one concern, which improves modularity and testability",
-      "Compose, reorder, or omit features at runtime as needed",
-      "Reduce code duplication and avoid large inheritance hierarchies",
-      "Client code still works through the same component interface",
+      "Responsibilities can be dynamically added, removed, or mixed at runtime.",
+      "Prevents the rigid explosion of subclasses (e.g. BorderedScrollableTextView).",
+      "Easily allows mixing, matching, and even adding the same property twice."
     ],
   },
   {
-    title: "Disadvantages",
-    color: "red" as const,
-    Icon: XCircle,
+    type: "Benefit",
+    title: "Avoids feature-laden classes",
+    bg: "bg-green/10",
+    border: "border-green/30",
+    text: "text-green",
     items: [
-      "Debugging can be harder because calls travel through multiple wrapper layers",
-      "Order matters, so changing the decorator sequence can alter behavior",
-      "Removing one decorator from the middle of a chain is awkward",
-      "Extra objects and indirection may add overhead in hot paths",
-      "Deep nesting can make setup code harder to read",
+      "Offers a 'pay-as-you-go' approach for adding extensions.",
+      "Keeps core components simple instead of bloating them with every foreseeable feature.",
+      "Ensures each component focuses on exactly one concern (SRP)."
+    ],
+  },
+  {
+    type: "Liability",
+    title: "Object identity isn't identical",
+    bg: "bg-red/5",
+    border: "border-red/20",
+    text: "text-red",
+    items: [
+      "Decorators act as completely transparent enclosures.",
+      "From an identity viewpoint, the decorator is not the underlying component.",
+      "Code expecting strict object identity will inherently fail."
+    ],
+  },
+  {
+    type: "Liability",
+    title: "Lots of little objects",
+    bg: "bg-red/10",
+    border: "border-red/30",
+    text: "text-red",
+    items: [
+      "Results in systems of many small, similar-looking objects.",
+      "The objects differ only in how they interconnect, not necessarily in structure.",
+      "Deep nesting of wrappers makes tracing and debugging significantly harder."
     ],
   },
 ];
 
 export function AdvDisadvSlide() {
   return (
-    <SlideLayout slideNumber={10} sectionLabel="THEORY">
-      <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-accent text-4xl font-bold">Advantages & Disadvantages</h2>
-        <div className="grid flex-1 grid-cols-2 gap-8">
-          {ADV_DISADV.map(({ title, color, Icon, items }, colIdx) => (
+    <SlideLayout slideNumber={9} sectionLabel="THEORY">
+      <div className="flex h-full flex-col gap-6">
+        <h2 className="slide-enter text-accent text-4xl font-bold">Key Benefits and Liabilities</h2>
+        <div className="grid flex-1 grid-cols-2 grid-rows-2 gap-6">
+          {BENEFITS_LIABILITIES.map((item, idx) => (
             <div
-              key={title}
-              className={`${stagger(colIdx, 1)} flex flex-col gap-6 rounded-xl border border-${color}/20 bg-${color}/5 p-8`}
+              key={item.title}
+              className={`${stagger(idx, 1)} flex flex-col rounded-xl border-2 ${item.border} ${item.bg} p-6 shadow-lg transition-transform hover:scale-[1.02]`}
             >
-              <h3 className={`text-3xl font-bold text-${color}`}>{title}</h3>
-              {items.map((text) => (
-                <div
-                  key={text}
-                  className="text-text-muted flex items-start gap-4 text-xl leading-snug"
-                >
-                  <Icon className={`mt-0.5 h-7 w-7 shrink-0 text-${color}`} />
-                  <span>{text}</span>
-                </div>
-              ))}
+              <div className="flex items-center gap-3 mb-5">
+                {item.type === "Benefit" ? (
+                  <CheckCircle className={`h-8 w-8 shrink-0 ${item.text}`} />
+                ) : (
+                  <XCircle className={`h-8 w-8 shrink-0 ${item.text}`} />
+                )}
+                <h3 className={`text-3xl font-bold ${item.text} leading-tight`}>
+                  {item.title}
+                </h3>
+              </div>
+              <ul className="flex-1 space-y-4 text-xl leading-relaxed text-text-muted pl-1">
+                {item.items.map((listItem, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className={`mt-2.5 h-2 w-2 shrink-0 rounded-full bg-current ${item.text} opacity-60`} />
+                    <span>{listItem}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -2,11 +2,9 @@ export { TitleSlide, TOCSlide } from "./TitleAndTOC";
 export { ProblemSlide, SolutionSlide } from "./CoreProblem";
 export {
   DefinitionSlide,
-  ComponentsSlide,
   ClassDiagramSlide,
-  CodeExampleSlide,
-  UseCasesSlide,
   AdvDisadvSlide,
+  UseCasesSlide,
 } from "./Theory";
 export {
   JavaDividerSlide,
