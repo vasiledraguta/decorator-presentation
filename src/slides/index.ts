@@ -21,4 +21,10 @@ export {
   AuthDecoratorSlide,
   PipelineStackingSlide,
 } from "./ExpressExample";
+export {
+  PythonDividerSlide,
+  PythonSugarSlide,
+  PythonImplementationSlide,
+  PythonUsageSlide,
+} from "./PythonExample";
 export { ComparisonSlide, SummarySlide, ThankYouSlide } from "./Conclusions";

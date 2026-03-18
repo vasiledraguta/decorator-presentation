@@ -115,6 +115,12 @@ const TOC_ITEMS = [
     icon: Server,
     desc: "Middleware chain in Express.js",
   },
+  {
+    num: "06",
+    title: "Python Decorators",
+    icon: Coffee, // Reusing Coffee or I can use another icon like Terminal
+    desc: "Syntactic sugar & @ syntax",
+  },
 ];
 
 export function TOCSlide() {
