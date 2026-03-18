@@ -3,8 +3,8 @@ export { ProblemSlide, SolutionSlide } from "./CoreProblem";
 export {
   DefinitionSlide,
   ClassDiagramSlide,
-  UseCasesSlide,
   AdvDisadvSlide,
+  UseCasesSlide,
 } from "./Theory";
 export {
   JavaDividerSlide,

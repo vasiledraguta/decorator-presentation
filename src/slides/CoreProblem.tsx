@@ -49,15 +49,27 @@ export function ProblemSlide() {
           </div>
           
           <div className="flex w-[45%] flex-col gap-5">
-            {PROBLEMS.map((p, idx) => (
-              <div
-                key={p.label}
-                className={`border-red/20 bg-red/5 flex flex-col justify-center rounded-xl border px-8 py-5 ${stagger(idx, 3)}`}
-              >
-                <h3 className="text-red mb-1 text-xl font-bold">{p.label}</h3>
-                <p className="text-text-muted text-lg leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
+            {PROBLEMS.map((p, idx) => {
+              const isViolation = p.label === "Violation";
+              return (
+                <div
+                  key={p.label}
+                  className={`flex flex-col justify-center rounded-xl border px-8 py-5 transition-transform duration-500 ease-out ${stagger(idx, 3)} ${
+                    isViolation
+                      ? "border-red shadow-[0_0_40px_rgba(239,68,68,0.4)] bg-red/10 scale-105 z-10 animate-pulse"
+                      : "border-red/20 bg-red/5 opacity-80"
+                  }`}
+                >
+                  <h3 className={`mb-1 font-bold ${isViolation ? "text-red text-2xl flex items-center gap-2" : "text-red text-xl"}`}>
+                    {isViolation && <AlertTriangle className="h-6 w-6" />}
+                    {p.label}
+                  </h3>
+                  <p className={`leading-relaxed ${isViolation ? "text-text font-medium text-xl" : "text-text-muted text-lg"}`}>
+                    {p.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
