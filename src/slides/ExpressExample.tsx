@@ -140,12 +140,7 @@ export function AuthDecoratorSlide() {
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={AUTH_CODE} fontSize="text-lg" className="h-full" />
             
-            {/* Number Labels for Execution Order */}
-            <div className="absolute top-[85px] left-[40px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">1</div>
-            <div className="absolute top-[205px] left-[150px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">2</div>
-            <div className="absolute top-[305px] left-[40px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">3</div>
-
-            <div className="absolute top-[200px] left-[250px] flex items-center gap-2">
+            <div className="absolute top-[200px] left-[600px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Mechanism of Delegation
