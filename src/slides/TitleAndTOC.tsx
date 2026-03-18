@@ -105,15 +105,15 @@ const TOC_ITEMS = [
   },
   {
     num: "04",
-    title: "Express Middleware",
-    icon: Server,
-    desc: "Middleware chain in Express.js",
-  },
-  {
-    num: "05",
     title: "Java I/O Streams",
     icon: Coffee,
     desc: "The classic FilterInputStream",
+  },
+  {
+    num: "05",
+    title: "Express Middleware",
+    icon: Server,
+    desc: "Middleware chain in Express.js",
   },
 ];
 

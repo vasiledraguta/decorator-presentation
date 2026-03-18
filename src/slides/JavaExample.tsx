@@ -6,8 +6,8 @@ import { stagger } from "../components/stagger";
 export function JavaDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={18}
-      sectionNum="05"
+      slideNumber={14}
+      sectionNum="04"
       title="Standard Library"
       subtitle="Java I/O Streams"
       tag="java.io — the classic example"
@@ -15,7 +15,7 @@ export function JavaDividerSlide() {
   );
 }
 
-/* ── Slide 19 — FilterInputStream ───────────────────────────── */
+/* ── Slide 15 — FilterInputStream ───────────────────────────── */
 
 const FILTER_INPUT_STREAM_CODE = `// Simplified from OpenJDK java.io.FilterInputStream
 public class FilterInputStream extends InputStream {
@@ -48,7 +48,7 @@ const FILTER_POINTS = [
 
 export function FilterInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={19} sectionLabel="JAVA I/O: FILTER">
+    <SlideLayout slideNumber={15} sectionLabel="JAVA I/O: FILTER">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Decorator Base</h2>
@@ -84,7 +84,7 @@ export function FilterInputStreamSlide() {
   );
 }
 
-/* ── Slide 20 — BufferedInputStream ──────────────────────────── */
+/* ── Slide 16 — BufferedInputStream ──────────────────────────── */
 
 const BUFFERED_INPUT_STREAM_CODE = `// Simplified from OpenJDK java.io.BufferedInputStream
 public class BufferedInputStream extends FilterInputStream {
@@ -120,7 +120,7 @@ const BUFFERED_POINTS = [
 
 export function BufferedInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={20} sectionLabel="JAVA I/O: CONCRETE">
+    <SlideLayout slideNumber={16} sectionLabel="JAVA I/O: CONCRETE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Concrete Decorator</h2>
@@ -156,7 +156,7 @@ export function BufferedInputStreamSlide() {
   );
 }
 
-/* ── Slide 21 — Real World Usage ─────────────────────────────── */
+/* ── Slide 17 — Real World Usage ─────────────────────────────── */
 
 const REAL_USAGE_CODE = `// How we actually use it in Java
 InputStream file = new FileInputStream("data.zip");
@@ -184,7 +184,7 @@ const USAGE_POINTS = [
 
 export function JavaUsageSlide() {
   return (
-    <SlideLayout slideNumber={21} sectionLabel="JAVA I/O: USAGE">
+    <SlideLayout slideNumber={17} sectionLabel="JAVA I/O: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage</h2>

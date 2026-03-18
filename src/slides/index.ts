@@ -10,15 +10,15 @@ export {
 } from "./Theory";
 export { ReactDividerSlide, HOCSlide, ConnectSlide } from "./ReactExample";
 export {
-  ExpressDividerSlide,
-  MiddlewarePipelineSlide,
-  AuthDecoratorSlide,
-  PipelineStackingSlide,
-} from "./ExpressExample";
-export {
   JavaDividerSlide,
   FilterInputStreamSlide,
   BufferedInputStreamSlide,
   JavaUsageSlide,
 } from "./JavaExample";
+export {
+  ExpressDividerSlide,
+  MiddlewarePipelineSlide,
+  AuthDecoratorSlide,
+  PipelineStackingSlide,
+} from "./ExpressExample";
 export { ComparisonSlide, SummarySlide, ThankYouSlide } from "./Conclusions";

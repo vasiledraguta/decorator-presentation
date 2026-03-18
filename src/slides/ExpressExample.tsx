@@ -3,14 +3,13 @@ import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
 import { stagger } from "../components/stagger";
 
-const EXPRESS_APPLICATION_URL =
-  "https://github.com/expressjs/express/blob/master/lib/application.js";
+const EXPRESS_APPLICATION_URL = "https://github.com/expressjs/express";
 
 export function ExpressDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={14}
-      sectionNum="04"
+      slideNumber={18}
+      sectionNum="05"
       title="Real-World Example"
       subtitle="Middleware in Express.js"
       tag={
@@ -27,7 +26,7 @@ export function ExpressDividerSlide() {
   );
 }
 
-/* ── Slide 15 — The Middleware Pipeline ────────────────────────── */
+/* ── Slide 19 — The Middleware Pipeline ────────────────────────── */
 
 const PIPELINE_CODE = `// The Middleware Signature
 const middleware = (req, res, next) => {
@@ -66,7 +65,7 @@ const PIPELINE_POINTS = [
 
 export function MiddlewarePipelineSlide() {
   return (
-    <SlideLayout slideNumber={15} sectionLabel="WEB MIDDLEWARE: PIPELINE">
+    <SlideLayout slideNumber={19} sectionLabel="WEB MIDDLEWARE: PIPELINE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Express.js: Functional Stacking</h2>
@@ -95,7 +94,7 @@ export function MiddlewarePipelineSlide() {
   );
 }
 
-/* ── Slide 16 — Auth Decorator ─────────────────────────────── */
+/* ── Slide 20 — Auth Decorator ─────────────────────────────── */
 
 const AUTH_CODE = `// A standard Express Middleware (The Decorator)
 const protectRoute = (req, res, next) => {
@@ -129,7 +128,7 @@ const AUTH_POINTS = [
 
 export function AuthDecoratorSlide() {
   return (
-    <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: LOGIC">
+    <SlideLayout slideNumber={20} sectionLabel="WEB MIDDLEWARE: LOGIC">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The "Guard" Decorator</h2>
@@ -141,7 +140,12 @@ export function AuthDecoratorSlide() {
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={AUTH_CODE} fontSize="text-lg" className="h-full" />
             
-            <div className="absolute top-[250px] left-[550px] flex items-center gap-2">
+            {/* Number Labels for Execution Order */}
+            <div className="absolute top-[85px] left-[40px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">1</div>
+            <div className="absolute top-[205px] left-[150px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">2</div>
+            <div className="absolute top-[305px] left-[40px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">3</div>
+
+            <div className="absolute top-[200px] left-[250px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Mechanism of Delegation
@@ -165,7 +169,7 @@ export function AuthDecoratorSlide() {
   );
 }
 
-/* ── Slide 17 — Stacking ────────────────────────────────────── */
+/* ── Slide 21 — Stacking ────────────────────────────────────── */
 
 const STACKING_CODE = `const app = express();
 
@@ -198,7 +202,7 @@ const STACKING_POINTS = [
 
 export function PipelineStackingSlide() {
   return (
-    <SlideLayout slideNumber={17} sectionLabel="WEB MIDDLEWARE: STACKING">
+    <SlideLayout slideNumber={21} sectionLabel="WEB MIDDLEWARE: STACKING">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Composing the Pipeline</h2>
