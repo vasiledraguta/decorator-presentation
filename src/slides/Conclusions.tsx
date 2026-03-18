@@ -1,59 +1,42 @@
 import { SlideLayout } from "../components/SlideLayout";
 import { stagger } from "../components/stagger";
 
-/* ── Slide 23 — Pattern Comparison ─────────────────────────────── */
+/* ── Slide 23 — Related Patterns ─────────────────────────────── */
 
 const PATTERNS = [
   {
-    name: "Decorator",
-    intent: "Add responsibilities dynamically",
-    mechanism: "Wraps same interface, delegates + extends",
-    highlight: true,
-  },
-  {
-    name: "Proxy",
-    intent: "Control access to an object",
-    mechanism: "Same interface, but different intent (lazy-load, cache, security)",
-    highlight: false,
+    name: "Adapter",
+    desc: "A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.",
   },
   {
     name: "Composite",
-    intent: "Treat a group as a single object",
-    mechanism: "Tree structure — uniform interface over hierarchy",
-    highlight: false,
+    desc: "A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities—it isn't intended for object aggregation.",
+  },
+  {
+    name: "Strategy",
+    desc: "A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.",
   },
 ];
 
 export function ComparisonSlide() {
   return (
     <SlideLayout slideNumber={23} sectionLabel="CONCLUSIONS">
-      <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-accent text-4xl font-bold">
-          Decorator vs Similar Patterns
+      <div className="flex h-full flex-col gap-10">
+        <h2 className="slide-enter text-accent text-5xl font-bold">
+          Related Patterns
         </h2>
-        <div className="grid flex-1 grid-cols-3 gap-6">
+        <div className="grid flex-1 grid-cols-3 gap-8">
           {PATTERNS.map((p, idx) => (
             <div
               key={p.name}
-              className={`flex flex-col gap-5 rounded-xl border-2 p-7 ${stagger(idx, 1)} ${
-                p.highlight ? "border-accent bg-accent-light/60" : "border-border-card bg-bg-card"
-              }`}
+              className={`flex flex-col gap-6 rounded-2xl border-2 border-border-card bg-bg-card p-10 shadow-lg transition-transform hover:-translate-y-2 ${stagger(idx, 1)}`}
             >
-              <h3 className={`text-3xl font-bold ${p.highlight ? "text-accent" : "text-text"}`}>
+              <h3 className="text-4xl font-bold text-accent border-b border-border-card pb-4">
                 {p.name}
               </h3>
-              <div>
-                <p className="text-text-muted mb-2 text-base font-bold tracking-wider uppercase">
-                  Intent
-                </p>
-                <p className="text-text text-2xl">{p.intent}</p>
-              </div>
-              <div>
-                <p className="text-text-muted mb-2 text-base font-bold tracking-wider uppercase">
-                  Mechanism
-                </p>
-                <p className="text-text text-2xl leading-relaxed">{p.mechanism}</p>
-              </div>
+              <p className="text-text-muted text-2xl leading-relaxed flex-1">
+                {p.desc}
+              </p>
             </div>
           ))}
         </div>
