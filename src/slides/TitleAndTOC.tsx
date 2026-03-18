@@ -1,5 +1,5 @@
 import { SlideLayout, stagger } from "../components/SlideLayout";
-import { Layers, BookOpen, Lightbulb, Code2, Server } from "lucide-react";
+import { Layers, BookOpen, Lightbulb, Code2, Server, Coffee } from "lucide-react";
 
 function DecoratorSVG() {
   return (
@@ -100,13 +100,19 @@ const TOC_ITEMS = [
     num: "03",
     title: "React (HOCs)",
     icon: Code2,
-    desc: "Higher-Order Components in open-source React",
+    desc: "Higher-Order Components",
   },
   {
     num: "04",
     title: "Express Middleware",
     icon: Server,
     desc: "Middleware chain in Express.js",
+  },
+  {
+    num: "05",
+    title: "Java I/O Streams",
+    icon: Coffee,
+    desc: "The classic FilterInputStream",
   },
 ];
 
@@ -118,20 +124,20 @@ export function TOCSlide() {
           <Layers className="mr-3 inline-block h-9 w-9" />
           Table of Contents
         </h2>
-        <div className="grid flex-1 grid-cols-2 gap-6">
+        <div className="grid flex-1 grid-cols-3 gap-6">
           {TOC_ITEMS.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.num}
-                className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
+                className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx, 1)}`}
               >
                 <span className="text-accent/25 text-5xl font-extrabold">{item.num}</span>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col items-center gap-3">
                   <Icon className="text-accent h-7 w-7" />
-                  <span className="text-text text-3xl font-bold">{item.title}</span>
+                  <span className="text-text text-2xl font-bold">{item.title}</span>
                 </div>
-                <span className="text-text-muted text-xl">{item.desc}</span>
+                <span className="text-text-muted text-lg">{item.desc}</span>
               </div>
             );
           })}

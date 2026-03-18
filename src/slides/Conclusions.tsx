@@ -1,6 +1,6 @@
 import { SlideLayout, stagger } from "../components/SlideLayout";
 
-/* ── Slide 17 — Pattern Comparison ─────────────────────────────── */
+/* ── Slide 21 — Pattern Comparison ─────────────────────────────── */
 
 const PATTERNS = [
   {
@@ -25,7 +25,7 @@ const PATTERNS = [
 
 export function ComparisonSlide() {
   return (
-    <SlideLayout slideNumber={17} sectionLabel="CONCLUSIONS">
+    <SlideLayout slideNumber={21} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-8">
         <h2 className="slide-enter text-accent text-4xl font-bold">
           Decorator vs Similar Patterns
@@ -61,7 +61,7 @@ export function ComparisonSlide() {
   );
 }
 
-/* ── Slide 18 — Summary ────────────────────────────────────────── */
+/* ── Slide 22 — Summary ────────────────────────────────────────── */
 
 const TAKEAWAYS = [
   {
@@ -80,7 +80,7 @@ const TAKEAWAYS = [
 
 export function SummarySlide() {
   return (
-    <SlideLayout slideNumber={18} sectionLabel="CONCLUSIONS">
+    <SlideLayout slideNumber={22} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-8">
         <h2 className="slide-enter text-accent text-4xl font-bold">Summary</h2>
         <div className="grid flex-1 grid-cols-3 gap-6">
@@ -103,7 +103,7 @@ export function SummarySlide() {
   );
 }
 
-/* ── Slide 19 — Thank You ──────────────────────────────────────── */
+/* ── Slide 23 — Thank You ──────────────────────────────────────── */
 
 function WrapSVG() {
   return (
@@ -132,7 +132,7 @@ function WrapSVG() {
 
 export function ThankYouSlide() {
   return (
-    <SlideLayout slideNumber={19}>
+    <SlideLayout slideNumber={23}>
       <div className="flex h-full flex-col items-center justify-center gap-8 text-center">
         <div className="slide-enter">
           <WrapSVG />
