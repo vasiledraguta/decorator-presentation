@@ -22,21 +22,17 @@ export function ComparisonSlide() {
   return (
     <SlideLayout slideNumber={23} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-10">
-        <h2 className="slide-enter text-accent text-5xl font-bold">
-          Related Patterns
-        </h2>
+        <h2 className="slide-enter text-accent text-5xl font-bold">Related Patterns</h2>
         <div className="grid flex-1 grid-cols-3 gap-8">
           {PATTERNS.map((p, idx) => (
             <div
               key={p.name}
-              className={`flex flex-col gap-6 rounded-2xl border-2 border-border-card bg-bg-card p-10 shadow-lg transition-transform hover:-translate-y-2 ${stagger(idx, 1)}`}
+              className={`border-border-card bg-bg-card flex flex-col gap-6 rounded-2xl border-2 p-10 shadow-lg transition-transform hover:-translate-y-2 ${stagger(idx, 1)}`}
             >
-              <h3 className="text-4xl font-bold text-accent border-b border-border-card pb-4">
+              <h3 className="text-accent border-border-card border-b pb-4 text-4xl font-bold">
                 {p.name}
               </h3>
-              <p className="text-text-muted text-2xl leading-relaxed flex-1">
-                {p.desc}
-              </p>
+              <p className="text-text-muted flex-1 text-2xl leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>

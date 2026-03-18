@@ -1,6 +1,6 @@
 import { SlideLayout } from "../components/SlideLayout";
 import { stagger } from "../components/stagger";
-import { Layers, BookOpen, Lightbulb, Server, Coffee, Terminal } from "lucide-react";
+import { Layers, BookOpen, ArrowRight, Server, Coffee, Terminal, ListChecks } from "lucide-react";
 
 function DecoratorSVG() {
   return (
@@ -88,7 +88,7 @@ const TOC_ITEMS = [
   {
     num: "01",
     title: "Context & Core Problem",
-    icon: Lightbulb,
+    icon: ArrowRight,
     desc: "The UI Toolkit & the Inheritance Trap",
   },
   {
@@ -114,6 +114,12 @@ const TOC_ITEMS = [
     title: "Python Decorators",
     icon: Terminal,
     desc: "Syntactic sugar & @ syntax",
+  },
+  {
+    num: "06",
+    title: "Summary",
+    icon: ListChecks,
+    desc: "Pattern comparison & key takeaways",
   },
 ];
 

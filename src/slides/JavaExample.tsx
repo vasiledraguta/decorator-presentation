@@ -3,7 +3,8 @@ import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
 import { stagger } from "../components/stagger";
 
-const JAVA_SOURCE_URL = "https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/io/FilterInputStream.java";
+const JAVA_SOURCE_URL =
+  "https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/io/FilterInputStream.java";
 
 export function JavaDividerSlide() {
   return (
@@ -12,7 +13,16 @@ export function JavaDividerSlide() {
       sectionNum="03"
       title="Standard Library"
       subtitle="Java I/O Streams"
-      tag="java.io — the classic example"
+      tag={
+        <a
+          href={JAVA_SOURCE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="ease hover:text-accent transition-colors duration-200"
+        >
+          java.io - openjdk/jdk
+        </a>
+      }
     />
   );
 }
@@ -58,7 +68,7 @@ export function FilterInputStreamSlide() {
             FilterInputStream: The "Middleman" that holds the magic reference.
           </p>
         </div>
-        
+
         <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
           <a
             href={JAVA_SOURCE_URL}
@@ -75,7 +85,7 @@ export function FilterInputStreamSlide() {
             <CodeBlock code={FILTER_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
             {/* Arrow pointing to 'protected volatile InputStream in;' which is line 4 */}
             <div className="absolute top-[115px] left-[550px] flex items-center gap-2">
-              <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
+              <ArrowLeft className="text-accent animate- h-8 w-8" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 The Wrapped Component
               </span>
@@ -147,7 +157,7 @@ export function BufferedInputStreamSlide() {
             <CodeBlock code={BUFFERED_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
             {/* Arrow pointing to 'super(in);' which is line 6 */}
             <div className="absolute top-[175px] left-[600px] flex items-center gap-2">
-              <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
+              <ArrowLeft className="text-accent animate- h-8 w-8" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Passing up the Chain
               </span>

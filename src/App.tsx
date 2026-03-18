@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, type JSX } from "react";
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { exportToPptx } from "./utils/exportToPptx";
 import {
   TitleSlide,
@@ -65,12 +65,30 @@ export default function App() {
     function onKey(e: KeyboardEvent) {
       if (e.key === "ArrowLeft") prev();
       else if (e.key === "ArrowRight") next();
+      else if (
+        (e.metaKey || e.ctrlKey) &&
+        !e.shiftKey &&
+        !e.altKey &&
+        e.key.toLowerCase() === "e"
+      ) {
+        const target = e.target as HTMLElement | null;
+        if (
+          target?.tagName === "INPUT" ||
+          target?.tagName === "TEXTAREA" ||
+          target?.isContentEditable
+        ) {
+          return;
+        }
+        e.preventDefault();
+        void handleExport();
+      }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   });
 
   async function handleExport() {
+    if (exporting) return;
     setExporting(true);
     try {
       await exportToPptx(containerRef, SLIDES, setCurrent, current);
@@ -84,15 +102,6 @@ export default function App() {
   return (
     <div className="bg-bg relative h-screen w-screen overflow-hidden">
       <div className="grain-overlay" />
-
-      <button
-        onClick={handleExport}
-        disabled={exporting}
-        className="border-border-card bg-bg-card text-text-muted ease hover:border-accent hover:text-accent absolute top-5 right-5 z-20 flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors duration-200 disabled:opacity-50"
-      >
-        <Download className="h-4 w-4" />
-        {exporting ? "Exporting\u2026" : "Export PPTX"}
-      </button>
 
       <div ref={containerRef} key={current} className="h-full w-full">
         <SlideComponent />

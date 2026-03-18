@@ -1,11 +1,6 @@
 export { TitleSlide, TOCSlide } from "./TitleAndTOC";
 export { ProblemSlide, SolutionSlide } from "./CoreProblem";
-export {
-  DefinitionSlide,
-  ClassDiagramSlide,
-  AdvDisadvSlide,
-  UseCasesSlide,
-} from "./Theory";
+export { DefinitionSlide, ClassDiagramSlide, AdvDisadvSlide, UseCasesSlide } from "./Theory";
 export {
   JavaDividerSlide,
   FilterInputStreamSlide,

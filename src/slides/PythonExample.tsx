@@ -1,7 +1,9 @@
 import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { stagger } from "../components/stagger";
+
+const PYTHON_SOURCE_URL = "https://github.com/python/cpython/blob/main/Python/codegen.c";
 
 export function PythonDividerSlide() {
   return (
@@ -10,7 +12,16 @@ export function PythonDividerSlide() {
       sectionNum="05"
       title="Syntactic Sugar"
       subtitle="Python Decorators"
-      tag="Python's First-Class Pattern"
+      tag={
+        <a
+          href={PYTHON_SOURCE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="ease hover:text-accent transition-colors duration-200"
+        >
+          decorators syntax - python/cpython
+        </a>
+      }
     />
   );
 }
@@ -54,26 +65,30 @@ export function PythonSugarSlide() {
         </div>
         <div className="flex flex-1 gap-10">
           <div className="flex w-1/2 flex-col gap-6">
-            <div className="slide-enter-delay-2 relative flex flex-1 flex-col justify-between gap-4">
-              <div className="flex-1">
-                <p className="text-text-muted mb-2 text-sm font-bold uppercase tracking-wider">Manual Assignment</p>
-                <CodeBlock code={MANUAL_CODE} fontSize="text-base" className="h-fit" />
+            <div className="slide-enter-delay-2 grid h-full flex-1 grid-rows-[1fr_auto_1fr] gap-5">
+              <div className="flex min-h-0 flex-col">
+                <p className="text-text-muted mb-2 text-sm font-bold tracking-wider uppercase">
+                  Manual Assignment
+                </p>
+                <CodeBlock code={MANUAL_CODE} fontSize="text-lg" className="h-full" />
               </div>
-              
-              <div className="flex items-center justify-center py-2">
-                <ArrowRight className="text-accent h-10 w-10 rotate-90" />
-                <span className="bg-accent/10 border-accent/20 text-accent ml-4 rounded-md border px-3 py-1 text-sm font-bold">
+
+              <div className="flex items-center justify-center gap-3 py-1">
+                <ArrowRight className="text-accent h-8 w-8 rotate-90" />
+                <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold">
                   Identical Result
                 </span>
               </div>
 
-              <div className="flex-1">
-                <p className="text-text-muted mb-2 text-sm font-bold uppercase tracking-wider">Pie Syntax (@)</p>
-                <CodeBlock code={SUGAR_CODE} fontSize="text-base" className="h-fit" />
+              <div className="flex min-h-0 flex-col">
+                <p className="text-text-muted mb-2 text-sm font-bold tracking-wider uppercase">
+                  Pie Syntax (@)
+                </p>
+                <CodeBlock code={SUGAR_CODE} fontSize="text-lg" className="h-full" />
               </div>
             </div>
           </div>
-          <div className="flex w-1/2 flex-col gap-6">
+          <div className="flex w-1/2 flex-col gap-6 pt-7">
             {SUGAR_POINTS.map((p, idx) => (
               <div
                 key={p.label}
@@ -139,14 +154,6 @@ export function PythonImplementationSlide() {
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={TIMING_CODE} fontSize="text-lg" className="h-full" />
-            
-            {/* Metadata Callout */}
-            <div className="absolute top-[135px] left-[600px] flex items-center gap-2">
-              <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
-              <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
-                Metadata Callout: Don't lose func.__name__!
-              </span>
-            </div>
           </div>
           <div className="flex w-[40%] flex-col gap-6">
             {TIMING_POINTS.map((p, idx) => (
@@ -196,18 +203,22 @@ export function PythonUsageSlide() {
     <SlideLayout slideNumber={22} sectionLabel="PYTHON: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
-          <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage (Flask/FastAPI)</h2>
+          <h2 className="slide-enter text-accent text-4xl font-bold">
+            Real-World Usage (Flask/FastAPI)
+          </h2>
           <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
             Defining routes and permissions at a glance.
           </p>
         </div>
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
-            <CodeBlock code={PY_USAGE_CODE} fontSize="text-xl" className="h-full" />
-            
+            <CodeBlock code={PY_USAGE_CODE} fontSize="text-lg" className="h-full" />
+
             {/* Stacking Highlight */}
-            <div className="absolute top-[35px] left-[-20px] slide-enter-delay-3 h-[140px] w-4 rounded-full bg-accent/20 border-l-4 border-accent" />
-            <div className="absolute top-[75px] left-[15px] slide-enter-delay-3 text-accent font-bold text-xs uppercase tracking-tighter rotate-90 origin-left">Stacking</div>
+            <div className="slide-enter-delay-3 bg-accent/20 border-accent absolute top-[35px] left-[-20px] h-[140px] w-4 rounded-full border-l-4" />
+            <div className="slide-enter-delay-3 text-accent absolute top-[75px] left-[15px] origin-left rotate-90 text-xs font-bold tracking-tighter uppercase">
+              Stacking
+            </div>
           </div>
           <div className="flex w-[40%] flex-col gap-6">
             {PY_USAGE_POINTS.map((p, idx) => (

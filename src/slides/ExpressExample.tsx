@@ -19,7 +19,7 @@ export function ExpressDividerSlide() {
           rel="noreferrer"
           className="ease hover:text-accent transition-colors duration-200"
         >
-          expressjs/express - open source
+          middleware - expressjs/express
         </a>
       }
     />
@@ -68,7 +68,9 @@ export function MiddlewarePipelineSlide() {
     <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: PIPELINE">
       <div className="flex h-full flex-col gap-8">
         <div>
-          <h2 className="slide-enter text-accent text-4xl font-bold">Express.js: Functional Stacking</h2>
+          <h2 className="slide-enter text-accent text-4xl font-bold">
+            Express.js: Functional Stacking
+          </h2>
           <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
             The Request-Response "Onion"
           </p>
@@ -139,9 +141,9 @@ export function AuthDecoratorSlide() {
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={AUTH_CODE} fontSize="text-lg" className="h-full" />
-            
+
             <div className="absolute top-[200px] left-[600px] flex items-center gap-2">
-              <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
+              <ArrowLeft className="text-accent animate- h-8 w-8" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Mechanism of Delegation
               </span>
@@ -218,11 +220,13 @@ export function PipelineStackingSlide() {
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={STACKING_CODE} fontSize="text-lg" className="h-full" />
-            
+
             {/* Comparison Box */}
-            <div className="absolute right-6 bottom-6 slide-enter-delay-3 max-w-[280px]">
+            <div className="slide-enter-delay-3 absolute right-6 bottom-6 max-w-[280px]">
               <div className="bg-bg-card border-accent/40 rounded-lg border-2 p-4 shadow-2xl">
-                <p className="text-accent text-sm font-bold uppercase tracking-wider mb-1">Architecture Note</p>
+                <p className="text-accent mb-1 text-sm font-bold tracking-wider uppercase">
+                  Architecture Note
+                </p>
                 <p className="text-text-muted text-sm leading-relaxed italic">
                   "Conceptually identical to Java's new BufferedInputStream(new FileInputStream())"
                 </p>
