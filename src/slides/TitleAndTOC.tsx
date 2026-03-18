@@ -1,6 +1,6 @@
 import { SlideLayout } from "../components/SlideLayout";
 import { stagger } from "../components/stagger";
-import { Layers, BookOpen, Lightbulb, Code2, Server, Coffee } from "lucide-react";
+import { Layers, BookOpen, Lightbulb, Server, Coffee, Terminal } from "lucide-react";
 
 function DecoratorSVG() {
   return (
@@ -99,9 +99,9 @@ const TOC_ITEMS = [
   },
   {
     num: "03",
-    title: "React (HOCs)",
-    icon: Code2,
-    desc: "Higher-Order Components",
+    title: "Java I/O Streams",
+    icon: Coffee,
+    desc: "The classic FilterInputStream",
   },
   {
     num: "04",
@@ -111,9 +111,9 @@ const TOC_ITEMS = [
   },
   {
     num: "05",
-    title: "Java I/O Streams",
-    icon: Coffee,
-    desc: "The classic FilterInputStream",
+    title: "Python Decorators",
+    icon: Terminal,
+    desc: "Syntactic sugar & @ syntax",
   },
 ];
 

@@ -1,14 +1,14 @@
 import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
+import { ArrowLeft } from "lucide-react";
 import { stagger } from "../components/stagger";
 
-const EXPRESS_APPLICATION_URL =
-  "https://github.com/expressjs/express/blob/master/lib/application.js";
+const EXPRESS_APPLICATION_URL = "https://github.com/expressjs/express";
 
 export function ExpressDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={14}
+      slideNumber={15}
       sectionNum="04"
       title="Real-World Example"
       subtitle="Middleware in Express.js"
@@ -26,57 +26,67 @@ export function ExpressDividerSlide() {
   );
 }
 
-/* ── Slide 15 — Middleware Explanation ──────────────────────────── */
+/* ── Slide 16 — The Middleware Pipeline ────────────────────────── */
 
-const MIDDLEWARE_CODE = `// Each middleware wraps the next layer
-app.use(logger);      // Layer 1: logs request
-app.use(auth);        // Layer 2: checks credentials
-app.use(rateLimit);   // Layer 3: throttles traffic
+const PIPELINE_CODE = `// The Middleware Signature
+const middleware = (req, res, next) => {
+  // 1. Logic before delegation
+  console.log("Request received");
 
-app.get("/api/data", (req, res) => {
-  // Core handler — only reached after
-  // all decorators (middleware) pass
-  res.json({ data: req.processedData });
+  // 2. The Delegation mechanism
+  next(); 
+
+  // 3. Optional: Logic after delegation
+};
+
+// The Component (Final Handler)
+app.get("/api", (req, res) => {
+  res.send("Core Behavior");
 });`;
 
-const MW_POINTS = [
+const PIPELINE_POINTS = [
   {
-    label: "Wrapping",
-    desc: "Each middleware wraps the request-response cycle \u2014 receives (req, res, next) and decorates the pipeline.",
+    label: "Functional Stacking",
+    desc: "In Express, the Component is your final Route Handler. Decorators are Middleware functions that wrap the request.",
   },
   {
-    label: "Delegation",
-    desc: "A middleware can modify req or res, then call next() to pass control to the next layer in the stack.",
+    label: "The Signature",
+    desc: "Each decorator receives req, res, and a next callback — the primary 'connection' point.",
   },
   {
-    label: "Composition",
-    desc: "Stacking middleware is composition of decorators: logging \u2192 auth \u2192 rate-limit \u2192 handler.",
+    label: "The Decoration",
+    desc: "Logic is added before calling next(). If next() isn't called, the chain breaks (acting as a Guard).",
   },
   {
-    label: "Open/Closed",
-    desc: "Add or remove middleware without touching the core route handler \u2014 true Open/Closed behavior.",
+    label: "The Result",
+    desc: "You can dynamically compose a complex request pipeline from simple, single-responsibility functions.",
   },
 ];
 
-export function MiddlewareSlide() {
+export function MiddlewarePipelineSlide() {
   return (
-    <SlideLayout slideNumber={15} sectionLabel="REAL-WORLD: EXPRESS">
+    <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: PIPELINE">
       <div className="flex h-full flex-col gap-8">
-        <h2 className="slide-enter text-accent text-4xl font-bold">Express Middleware</h2>
-        <div className="flex flex-1 gap-10">
-          <div className="flex w-1/2 flex-col gap-5">
-            {MW_POINTS.map((p, idx) => (
+        <div>
+          <h2 className="slide-enter text-accent text-4xl font-bold">Express.js: Functional Stacking</h2>
+          <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
+            The Request-Response "Onion"
+          </p>
+        </div>
+        <div className="flex flex-1 gap-10 overflow-hidden">
+          <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
+            <CodeBlock code={PIPELINE_CODE} fontSize="text-lg" className="h-full" />
+          </div>
+          <div className="flex w-[40%] flex-col gap-5">
+            {PIPELINE_POINTS.map((p, idx) => (
               <div
                 key={p.label}
-                className={`border-accent/20 bg-accent/5 flex flex-1 flex-col justify-center rounded-xl border px-10 py-6 ${stagger(idx)}`}
+                className={`border-accent/20 bg-accent/5 flex flex-1 flex-col justify-center rounded-xl border px-10 py-4 ${stagger(idx)}`}
               >
-                <h3 className="text-accent mb-2 text-2xl font-bold">{p.label}</h3>
+                <h3 className="text-accent mb-1 text-2xl font-bold">{p.label}</h3>
                 <p className="text-text-muted text-lg leading-relaxed">{p.desc}</p>
               </div>
             ))}
-          </div>
-          <div className="slide-enter-delay-2 flex w-1/2 flex-col">
-            <CodeBlock code={MIDDLEWARE_CODE} fontSize="text-lg" className="flex-1" />
           </div>
         </div>
       </div>
@@ -84,43 +94,116 @@ export function MiddlewareSlide() {
   );
 }
 
-/* ── Slide 16 — Express Code Deep Dive ─────────────────────────── */
+/* ── Slide 17 — Auth Decorator ─────────────────────────────── */
 
-const COMPOSE_CODE = `// Simplified Express-style middleware composition
-function compose(...middlewares) {
-  return function (req, res) {
-    let index = -1;
+const AUTH_CODE = `// A standard Express Middleware (The Decorator)
+const protectRoute = (req, res, next) => {
+    // 1. Added Behavior: Check for a token
+    const token = req.headers['authorization'];
 
-    function dispatch(i) {
-      if (i <= index) throw new Error("next() called multiple times");
-      index = i;
-      const fn = middlewares[i];
-      if (!fn) return;
-      fn(req, res, () => dispatch(i + 1));
+    if (token === "valid-secret") {
+        // 2. Delegation: Pass control to the next 
+        // wrapped component in the stack
+        return next(); 
     }
 
-    dispatch(0);
-  };
+    // 3. Alternative Behavior: Terminate the chain
+    res.status(401).send("Unauthorized Access");
+};`;
+
+const AUTH_POINTS = [
+  {
+    label: "The Guard Decorator",
+    desc: "Controls access via delegation. If validation fails, it short-circuits the pipeline.",
+  },
+  {
+    label: "Delegation Mechanism",
+    desc: "The next() function is the mechanism of Delegation — conceptually identical to super.read() in Java.",
+  },
+  {
+    label: "Transparent Wrapping",
+    desc: "The wrapped component doesn't know it's being protected; it just waits for next() to be called.",
+  },
+];
+
+export function AuthDecoratorSlide() {
+  return (
+    <SlideLayout slideNumber={17} sectionLabel="WEB MIDDLEWARE: LOGIC">
+      <div className="flex h-full flex-col gap-8">
+        <div>
+          <h2 className="slide-enter text-accent text-4xl font-bold">The "Guard" Decorator</h2>
+          <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
+            Controlling access via delegation.
+          </p>
+        </div>
+        <div className="flex flex-1 gap-10 overflow-hidden">
+          <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
+            <CodeBlock code={AUTH_CODE} fontSize="text-lg" className="h-full" />
+            
+            <div className="absolute top-[200px] left-[600px] flex items-center gap-2">
+              <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
+              <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
+                Mechanism of Delegation
+              </span>
+            </div>
+          </div>
+          <div className="flex w-[40%] flex-col gap-6">
+            {AUTH_POINTS.map((p, idx) => (
+              <div
+                key={p.label}
+                className={`border-accent/20 bg-accent/5 flex flex-1 flex-col justify-center rounded-xl border px-10 py-6 ${stagger(idx)}`}
+              >
+                <h3 className="text-accent mb-2 text-2xl font-bold">{p.label}</h3>
+                <p className="text-text-muted text-xl leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SlideLayout>
+  );
 }
 
-// Usage — chain of Decorator objects:
-const handler = compose(
-  logger,       // Decorator 1
-  authenticate, // Decorator 2
-  rateLimit,    // Decorator 3
-  finalHandler  // Core component
-);
-handler(req, res);`;
+/* ── Slide 18 — Stacking ────────────────────────────────────── */
 
-export function ExpressCodeSlide() {
+const STACKING_CODE = `const app = express();
+
+// Base Component: The raw profile data logic
+const getProfile = (req, res) => {
+    res.json({ name: "Jane Doe", role: "Admin" });
+};
+
+// Wrapping the component with multiple decorators
+app.get('/admin/profile', 
+    loggingDecorator, // Layer 1: Logs the request
+    protectRoute,     // Layer 2: Checks Auth
+    getProfile        // The Core Component
+);`;
+
+const STACKING_POINTS = [
+  {
+    label: "Composing the Pipeline",
+    desc: "Attaching decorators to specific routes. Each layer is a 'Russian Doll' wrapping the core logic.",
+  },
+  {
+    label: "Russian Doll Structure",
+    desc: "To reach getProfile, the request must successfully pass through logging and auth.",
+  },
+  {
+    label: "Open/Closed Principle",
+    desc: "Add logging, auth, or caching without changing a single line of the getProfile logic.",
+  },
+];
+
+export function PipelineStackingSlide() {
   return (
-    <SlideLayout slideNumber={16} sectionLabel="REAL-WORLD: EXPRESS">
-      <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-accent text-4xl font-bold">
-          express/lib/router — Decorator Chain
-        </h2>
-        <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock code={COMPOSE_CODE} fontSize="text-lg" className="h-full" />
+    <SlideLayout slideNumber={18} sectionLabel="WEB MIDDLEWARE: STACKING">
+      <div className="flex h-full flex-col gap-8">
+        <div>
+          <h2 className="slide-enter text-accent text-4xl font-bold">Composing the Pipeline</h2>
+          <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
+            Attaching decorators to specific routes.
+          </p>
         </div>
         <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
           <a
@@ -132,6 +215,32 @@ export function ExpressCodeSlide() {
             Source: expressjs/express on GitHub
           </a>
         </p>
+        <div className="flex flex-1 gap-10 overflow-hidden">
+          <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
+            <CodeBlock code={STACKING_CODE} fontSize="text-lg" className="h-full" />
+            
+            {/* Comparison Box */}
+            <div className="absolute right-6 bottom-6 slide-enter-delay-3 max-w-[280px]">
+              <div className="bg-bg-card border-accent/40 rounded-lg border-2 p-4 shadow-2xl">
+                <p className="text-accent text-sm font-bold uppercase tracking-wider mb-1">Architecture Note</p>
+                <p className="text-text-muted text-sm leading-relaxed italic">
+                  "Conceptually identical to Java's new BufferedInputStream(new FileInputStream())"
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex w-[40%] flex-col gap-6">
+            {STACKING_POINTS.map((p, idx) => (
+              <div
+                key={p.label}
+                className={`border-accent/20 bg-accent/5 flex flex-1 flex-col justify-center rounded-xl border px-10 py-6 ${stagger(idx)}`}
+              >
+                <h3 className="text-accent mb-2 text-2xl font-bold">{p.label}</h3>
+                <p className="text-text-muted text-xl leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </SlideLayout>
   );
