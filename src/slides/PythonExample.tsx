@@ -6,8 +6,8 @@ import { stagger } from "../components/stagger";
 export function PythonDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={22}
-      sectionNum="06"
+      slideNumber={19}
+      sectionNum="05"
       title="Syntactic Sugar"
       subtitle="Python Decorators"
       tag="Python's First-Class Pattern"
@@ -15,7 +15,7 @@ export function PythonDividerSlide() {
   );
 }
 
-/* ── Slide 23 — The @ Syntactic Sugar ─────────────────────────── */
+/* ── Slide 20 — The @ Syntactic Sugar ─────────────────────────── */
 
 const MANUAL_CODE = `def view():
     return "Core Logic"
@@ -44,10 +44,10 @@ const SUGAR_POINTS = [
 
 export function PythonSugarSlide() {
   return (
-    <SlideLayout slideNumber={23} sectionLabel="PYTHON: SYNTACTIC SUGAR">
+    <SlideLayout slideNumber={20} sectionLabel="PYTHON: SYNTACTIC SUGAR">
       <div className="flex h-full flex-col gap-8">
         <div>
-          <h2 className="slide-enter text-accent text-4xl font-bold">Python’s "@" Syntax</h2>
+          <h2 className="slide-enter text-accent text-4xl font-bold">Python’s "Pie" Syntax</h2>
           <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
             Turning a Pattern into a Language Feature.
           </p>
@@ -90,7 +90,7 @@ export function PythonSugarSlide() {
   );
 }
 
-/* ── Slide 24 — Timing Decorator ─────────────────────────────── */
+/* ── Slide 21 — Timing Decorator ─────────────────────────────── */
 
 const TIMING_CODE = `from functools import wraps
 import time
@@ -128,7 +128,7 @@ const TIMING_POINTS = [
 
 export function PythonImplementationSlide() {
   return (
-    <SlideLayout slideNumber={24} sectionLabel="PYTHON: IMPLEMENTATION">
+    <SlideLayout slideNumber={21} sectionLabel="PYTHON: IMPLEMENTATION">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Anatomy of a Decorator</h2>
@@ -141,7 +141,7 @@ export function PythonImplementationSlide() {
             <CodeBlock code={TIMING_CODE} fontSize="text-lg" className="h-full" />
             
             {/* Metadata Callout */}
-            <div className="absolute top-[135px] left-[200px] flex items-center gap-2">
+            <div className="absolute top-[135px] left-[600px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Metadata Callout: Don't lose func.__name__!
@@ -165,7 +165,7 @@ export function PythonImplementationSlide() {
   );
 }
 
-/* ── Slide 25 — Real-World Usage ─────────────────────────────── */
+/* ── Slide 22 — Real-World Usage ─────────────────────────────── */
 
 const PY_USAGE_CODE = `@app.route("/api/data")  # Decorator 1: Routing
 @login_required          # Decorator 2: Auth Guard
@@ -193,7 +193,7 @@ const PY_USAGE_POINTS = [
 
 export function PythonUsageSlide() {
   return (
-    <SlideLayout slideNumber={25} sectionLabel="PYTHON: USAGE">
+    <SlideLayout slideNumber={22} sectionLabel="PYTHON: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage (Flask/FastAPI)</h2>

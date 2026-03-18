@@ -8,7 +8,6 @@ export {
   UseCasesSlide,
   AdvDisadvSlide,
 } from "./Theory";
-export { ReactDividerSlide, HOCSlide, ConnectSlide } from "./ReactExample";
 export {
   JavaDividerSlide,
   FilterInputStreamSlide,

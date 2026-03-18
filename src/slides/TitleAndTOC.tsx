@@ -1,6 +1,6 @@
 import { SlideLayout } from "../components/SlideLayout";
 import { stagger } from "../components/stagger";
-import { Layers, BookOpen, Lightbulb, Code2, Server, Coffee } from "lucide-react";
+import { Layers, BookOpen, Lightbulb, Server, Coffee, Terminal } from "lucide-react";
 
 function DecoratorSVG() {
   return (
@@ -99,26 +99,20 @@ const TOC_ITEMS = [
   },
   {
     num: "03",
-    title: "React (HOCs)",
-    icon: Code2,
-    desc: "Higher-Order Components",
-  },
-  {
-    num: "04",
     title: "Java I/O Streams",
     icon: Coffee,
     desc: "The classic FilterInputStream",
   },
   {
-    num: "05",
+    num: "04",
     title: "Express Middleware",
     icon: Server,
     desc: "Middleware chain in Express.js",
   },
   {
-    num: "06",
+    num: "05",
     title: "Python Decorators",
-    icon: Coffee, // Reusing Coffee or I can use another icon like Terminal
+    icon: Terminal,
     desc: "Syntactic sugar & @ syntax",
   },
 ];

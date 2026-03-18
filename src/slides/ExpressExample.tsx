@@ -8,8 +8,8 @@ const EXPRESS_APPLICATION_URL = "https://github.com/expressjs/express";
 export function ExpressDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={18}
-      sectionNum="05"
+      slideNumber={15}
+      sectionNum="04"
       title="Real-World Example"
       subtitle="Middleware in Express.js"
       tag={
@@ -26,7 +26,7 @@ export function ExpressDividerSlide() {
   );
 }
 
-/* ── Slide 19 — The Middleware Pipeline ────────────────────────── */
+/* ── Slide 16 — The Middleware Pipeline ────────────────────────── */
 
 const PIPELINE_CODE = `// The Middleware Signature
 const middleware = (req, res, next) => {
@@ -65,7 +65,7 @@ const PIPELINE_POINTS = [
 
 export function MiddlewarePipelineSlide() {
   return (
-    <SlideLayout slideNumber={19} sectionLabel="WEB MIDDLEWARE: PIPELINE">
+    <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: PIPELINE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Express.js: Functional Stacking</h2>
@@ -94,7 +94,7 @@ export function MiddlewarePipelineSlide() {
   );
 }
 
-/* ── Slide 20 — Auth Decorator ─────────────────────────────── */
+/* ── Slide 17 — Auth Decorator ─────────────────────────────── */
 
 const AUTH_CODE = `// A standard Express Middleware (The Decorator)
 const protectRoute = (req, res, next) => {
@@ -128,7 +128,7 @@ const AUTH_POINTS = [
 
 export function AuthDecoratorSlide() {
   return (
-    <SlideLayout slideNumber={20} sectionLabel="WEB MIDDLEWARE: LOGIC">
+    <SlideLayout slideNumber={17} sectionLabel="WEB MIDDLEWARE: LOGIC">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The "Guard" Decorator</h2>
@@ -169,7 +169,7 @@ export function AuthDecoratorSlide() {
   );
 }
 
-/* ── Slide 21 — Stacking ────────────────────────────────────── */
+/* ── Slide 18 — Stacking ────────────────────────────────────── */
 
 const STACKING_CODE = `const app = express();
 
@@ -202,7 +202,7 @@ const STACKING_POINTS = [
 
 export function PipelineStackingSlide() {
   return (
-    <SlideLayout slideNumber={21} sectionLabel="WEB MIDDLEWARE: STACKING">
+    <SlideLayout slideNumber={18} sectionLabel="WEB MIDDLEWARE: STACKING">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Composing the Pipeline</h2>
