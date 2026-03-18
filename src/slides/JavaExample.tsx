@@ -146,7 +146,7 @@ export function BufferedInputStreamSlide() {
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={BUFFERED_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
             {/* Arrow pointing to 'super(in);' which is line 6 */}
-            <div className="absolute top-[175px] left-[280px] flex items-center gap-2">
+            <div className="absolute top-[175px] left-[600px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Passing up the Chain
