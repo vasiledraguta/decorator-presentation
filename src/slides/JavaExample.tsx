@@ -3,6 +3,8 @@ import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
 import { stagger } from "../components/stagger";
 
+const JAVA_SOURCE_URL = "https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/io/FilterInputStream.java";
+
 export function JavaDividerSlide() {
   return (
     <SectionDivider
@@ -56,6 +58,18 @@ export function FilterInputStreamSlide() {
             FilterInputStream: The "Middleman" that holds the magic reference.
           </p>
         </div>
+        
+        <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
+          <a
+            href={JAVA_SOURCE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="ease hover:text-accent transition-colors duration-200"
+          >
+            Source: java.io.FilterInputStream on GitHub
+          </a>
+        </p>
+
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={FILTER_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
