@@ -1,4 +1,4 @@
-import { SlideLayout, stagger, SectionDivider } from "../components/SlideLayout";
+import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
 
@@ -9,7 +9,16 @@ export function ExpressDividerSlide() {
       sectionNum="04"
       title="Real-World Example"
       subtitle="Middleware in Express.js"
-      tag="expressjs/express — open source"
+      tag={
+        <a
+          href={EXPRESS_APPLICATION_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="ease hover:text-accent transition-colors duration-200"
+        >
+          expressjs/express - open source
+        </a>
+      }
     />
   );
 }
@@ -151,6 +160,9 @@ export function AuthDecoratorSlide() {
               </div>
             ))}
           </div>
+          <div className="slide-enter-delay-2 flex w-1/2 flex-col">
+            <CodeBlock code={MIDDLEWARE_CODE} fontSize="text-lg" className="flex-1" />
+          </div>
         </div>
       </div>
     </SlideLayout>
@@ -190,6 +202,13 @@ const STACKING_POINTS = [
 
 export function PipelineStackingSlide() {
   return (
+    <SlideLayout slideNumber={16} sectionLabel="REAL-WORLD: EXPRESS">
+      <div className="flex h-full flex-col gap-6">
+        <h2 className="slide-enter text-accent text-4xl font-bold">
+          express/lib/router — Decorator Chain
+        </h2>
+        <div className="slide-enter-delay-1 min-h-0 flex-1">
+          <CodeBlock code={COMPOSE_CODE} fontSize="text-lg" className="h-full" />
     <SlideLayout slideNumber={17} sectionLabel="WEB MIDDLEWARE: STACKING">
       <div className="flex h-full flex-col gap-8">
         <div>
@@ -198,6 +217,16 @@ export function PipelineStackingSlide() {
             Attaching decorators to specific routes.
           </p>
         </div>
+        <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
+          <a
+            href={EXPRESS_APPLICATION_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="ease hover:text-accent transition-colors duration-200"
+          >
+            Source: expressjs/express on GitHub
+          </a>
+        </p>
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={STACKING_CODE} fontSize="text-lg" className="h-full" />

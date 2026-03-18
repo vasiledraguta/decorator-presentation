@@ -1,6 +1,7 @@
-import { SlideLayout, stagger, SectionDivider } from "../components/SlideLayout";
+import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
+import { stagger } from "../components/stagger";
 
 export function JavaDividerSlide() {
   return (
@@ -61,7 +62,7 @@ export function FilterInputStreamSlide() {
             {/* Arrow pointing to 'protected volatile InputStream in;' which is line 4 */}
             <div className="absolute top-[115px] left-[550px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
-              <span className="bg-accent/10 border-accent/20 rounded-md border px-3 py-1 text-sm font-bold text-accent whitespace-nowrap">
+              <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 The Wrapped Component
               </span>
             </div>
@@ -133,7 +134,7 @@ export function BufferedInputStreamSlide() {
             {/* Arrow pointing to 'super(in);' which is line 6 */}
             <div className="absolute top-[175px] left-[280px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
-              <span className="bg-accent/10 border-accent/20 rounded-md border px-3 py-1 text-sm font-bold text-accent whitespace-nowrap">
+              <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Passing up the Chain
               </span>
             </div>

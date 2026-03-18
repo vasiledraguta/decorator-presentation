@@ -1,5 +1,6 @@
-import { SlideLayout, stagger, SectionDivider } from "../components/SlideLayout";
+import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
+import { stagger } from "../components/stagger";
 
 export function ReactDividerSlide() {
   return (
@@ -67,7 +68,7 @@ export function HOCSlide() {
             ))}
           </div>
           <div className="slide-enter-delay-2 flex w-1/2 flex-col">
-            <CodeBlock code={HOC_CODE} fontSize="text-base" className="flex-1" />
+            <CodeBlock code={HOC_CODE} fontSize="text-lg" className="flex-1" />
           </div>
         </div>
       </div>
@@ -106,7 +107,7 @@ export function ConnectSlide() {
       <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent text-4xl font-bold">react-redux: connect()</h2>
         <div className="slide-enter-delay-1 flex-1">
-          <CodeBlock code={CONNECT_CODE} fontSize="text-base" className="h-full" />
+          <CodeBlock code={CONNECT_CODE} fontSize="text-lg" className="h-full" />
         </div>
         <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
           Source: reduxjs/react-redux on GitHub
