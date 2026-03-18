@@ -1,4 +1,5 @@
-import { SlideLayout, stagger } from "../components/SlideLayout";
+import { SlideLayout } from "../components/SlideLayout";
+import { stagger } from "../components/stagger";
 import { CodeBlock } from "../components/CodeBlock";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 
@@ -55,7 +56,7 @@ export function ProblemSlide() {
             ))}
           </div>
           <div className="slide-enter-delay-2 flex w-1/2 flex-col">
-            <CodeBlock code={INHERITANCE_CODE} fontSize="text-sm" className="flex-1" />
+            <CodeBlock code={INHERITANCE_CODE} fontSize="text-lg" className="flex-1" />
           </div>
         </div>
       </div>

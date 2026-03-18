@@ -1,5 +1,6 @@
-import { SlideLayout, stagger } from "../components/SlideLayout";
+import { SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
+import { stagger } from "../components/stagger";
 import { CheckCircle, XCircle } from "lucide-react";
 
 /* ── Slide 5 — Definition ─────────────────────────────────────── */
@@ -344,7 +345,7 @@ export function CodeExampleSlide() {
       <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent text-4xl font-bold">Code Example</h2>
         <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock code={CODE_EXAMPLE} fontSize="text-base" className="h-full overflow-hidden" />
+          <CodeBlock code={CODE_EXAMPLE} fontSize="text-lg" className="h-full overflow-hidden" />
         </div>
       </div>
     </SlideLayout>
@@ -357,22 +358,32 @@ const USE_CASES = [
   {
     num: "01",
     title: "Runtime Behavior",
-    desc: "Add behavior to individual objects at runtime without affecting other objects of the same class.",
+    desc: "Add or change responsibilities for one object at runtime without affecting other instances.",
   },
   {
     num: "02",
-    title: "Combinable Features",
-    desc: "When features can be mixed and matched independently — each decorator is its own unit.",
+    title: "Composable Features",
+    desc: "Mix independent concerns like logging, caching, retry, or validation as reusable wrappers.",
   },
   {
     num: "03",
-    title: "Sealed / Legacy Code",
-    desc: "When you cannot extend a class via inheritance because it is sealed, final, or from a third-party library.",
+    title: "Closed Classes",
+    desc: "Wrap sealed, final, legacy, or third-party classes when subclassing is not possible.",
   },
   {
     num: "04",
-    title: "Single Responsibility",
-    desc: "When you want to keep each concern in its own class rather than creating a monolithic subclass.",
+    title: "Avoid Subclass Explosion",
+    desc: "Replace a large inheritance tree with small decorators that can be combined as needed.",
+  },
+  {
+    num: "05",
+    title: "Stable Interface",
+    desc: "Keep the same component API while adding responsibilities around streams, widgets, or services.",
+  },
+  {
+    num: "06",
+    title: "Separate Concerns",
+    desc: "Preserve single responsibility by moving each cross-cutting concern into its own decorator.",
   },
 ];
 
@@ -380,16 +391,16 @@ export function UseCasesSlide() {
   return (
     <SlideLayout slideNumber={9} sectionLabel="THEORY">
       <div className="flex h-full flex-col">
-        <h2 className="slide-enter text-accent mb-10 text-4xl font-bold">When to Use It</h2>
-        <div className="grid flex-1 grid-cols-2 gap-6">
+        <h2 className="slide-enter text-accent mb-8 text-4xl font-bold">When to Use It</h2>
+        <div className="grid flex-1 grid-cols-2 gap-5">
           {USE_CASES.map((uc, idx) => (
             <div
               key={uc.title}
-              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
+              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-3 rounded-xl border p-6 text-center ${stagger(idx)}`}
             >
-              <span className="text-accent/25 text-5xl font-extrabold">{uc.num}</span>
-              <h3 className="text-text text-3xl font-bold">{uc.title}</h3>
-              <p className="text-text-muted text-xl leading-relaxed">{uc.desc}</p>
+              <span className="text-accent/25 text-4xl font-extrabold">{uc.num}</span>
+              <h3 className="text-text text-2xl font-bold">{uc.title}</h3>
+              <p className="text-text-muted text-lg leading-relaxed">{uc.desc}</p>
             </div>
           ))}
         </div>
@@ -406,10 +417,11 @@ const ADV_DISADV = [
     color: "green" as const,
     Icon: CheckCircle,
     items: [
-      "Extend behavior without modifying existing code (Open/Closed Principle)",
-      "Each decorator handles one concern (Single Responsibility Principle)",
-      "Compose behaviors freely at runtime — no subclass explosion",
-      "Decorators can be added or removed independently",
+      "Add behavior without modifying existing code (Open/Closed Principle)",
+      "Each decorator focuses on one concern, which improves modularity and testability",
+      "Compose, reorder, or omit features at runtime as needed",
+      "Reduce code duplication and avoid large inheritance hierarchies",
+      "Client code still works through the same component interface",
     ],
   },
   {
@@ -417,10 +429,11 @@ const ADV_DISADV = [
     color: "red" as const,
     Icon: XCircle,
     items: [
-      "Hard to remove a specific wrapper from the middle of the stack",
-      "Many small objects can make debugging and stack traces harder to follow",
-      "Order of decoration matters — changing it can alter behavior",
-      "Initial configuration code can look complex with deep nesting",
+      "Debugging can be harder because calls travel through multiple wrapper layers",
+      "Order matters, so changing the decorator sequence can alter behavior",
+      "Removing one decorator from the middle of a chain is awkward",
+      "Extra objects and indirection may add overhead in hot paths",
+      "Deep nesting can make setup code harder to read",
     ],
   },
 ];
@@ -434,13 +447,13 @@ export function AdvDisadvSlide() {
           {ADV_DISADV.map(({ title, color, Icon, items }, colIdx) => (
             <div
               key={title}
-              className={`${stagger(colIdx, 1)} flex flex-col gap-8 rounded-xl border border-${color}/20 bg-${color}/5 p-10`}
+              className={`${stagger(colIdx, 1)} flex flex-col gap-6 rounded-xl border border-${color}/20 bg-${color}/5 p-8`}
             >
               <h3 className={`text-3xl font-bold text-${color}`}>{title}</h3>
               {items.map((text) => (
                 <div
                   key={text}
-                  className="text-text-muted flex items-start gap-4 text-2xl leading-snug"
+                  className="text-text-muted flex items-start gap-4 text-xl leading-snug"
                 >
                   <Icon className={`mt-0.5 h-7 w-7 shrink-0 text-${color}`} />
                   <span>{text}</span>

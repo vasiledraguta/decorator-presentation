@@ -1,5 +1,9 @@
-import { SlideLayout, stagger, SectionDivider } from "../components/SlideLayout";
+import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
+import { stagger } from "../components/stagger";
+
+const EXPRESS_APPLICATION_URL =
+  "https://github.com/expressjs/express/blob/master/lib/application.js";
 
 export function ExpressDividerSlide() {
   return (
@@ -8,7 +12,16 @@ export function ExpressDividerSlide() {
       sectionNum="04"
       title="Real-World Example"
       subtitle="Middleware in Express.js"
-      tag="expressjs/express — open source"
+      tag={
+        <a
+          href={EXPRESS_APPLICATION_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="ease hover:text-accent transition-colors duration-200"
+        >
+          expressjs/express - open source
+        </a>
+      }
     />
   );
 }
@@ -63,7 +76,7 @@ export function MiddlewareSlide() {
             ))}
           </div>
           <div className="slide-enter-delay-2 flex w-1/2 flex-col">
-            <CodeBlock code={MIDDLEWARE_CODE} fontSize="text-base" className="flex-1" />
+            <CodeBlock code={MIDDLEWARE_CODE} fontSize="text-lg" className="flex-1" />
           </div>
         </div>
       </div>
@@ -107,10 +120,17 @@ export function ExpressCodeSlide() {
           express/lib/router — Decorator Chain
         </h2>
         <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock code={COMPOSE_CODE} fontSize="text-base" className="h-full overflow-hidden" />
+          <CodeBlock code={COMPOSE_CODE} fontSize="text-lg" className="h-full" />
         </div>
         <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
-          Source: expressjs/express on GitHub
+          <a
+            href={EXPRESS_APPLICATION_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="ease hover:text-accent transition-colors duration-200"
+          >
+            Source: expressjs/express on GitHub
+          </a>
         </p>
       </div>
     </SlideLayout>

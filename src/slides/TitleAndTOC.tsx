@@ -1,4 +1,5 @@
-import { SlideLayout, stagger } from "../components/SlideLayout";
+import { SlideLayout } from "../components/SlideLayout";
+import { stagger } from "../components/stagger";
 import { Layers, BookOpen, Lightbulb, Code2, Server, Coffee } from "lucide-react";
 
 function DecoratorSVG() {
