@@ -128,7 +128,7 @@ function UMLBox({
 
 export function ClassDiagramSlide() {
   return (
-    <SlideLayout slideNumber={7} sectionLabel="THEORY">
+    <SlideLayout slideNumber={6} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent text-4xl font-bold">Class Diagram</h2>
         <div className="slide-enter-delay-1 flex min-h-0 flex-1 items-center justify-center">
@@ -314,7 +314,7 @@ const USE_CASES = [
 
 export function UseCasesSlide() {
   return (
-    <SlideLayout slideNumber={10} sectionLabel="THEORY">
+    <SlideLayout slideNumber={8} sectionLabel="THEORY">
       <div className="flex h-full flex-col">
         <h2 className="slide-enter text-accent mb-6 text-4xl font-bold">When to Use It</h2>
         <div className="grid flex-1 grid-cols-3 gap-6">
@@ -389,7 +389,7 @@ const BENEFITS_LIABILITIES = [
 
 export function AdvDisadvSlide() {
   return (
-    <SlideLayout slideNumber={9} sectionLabel="THEORY">
+    <SlideLayout slideNumber={7} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent text-4xl font-bold">Key Benefits and Liabilities</h2>
         <div className="grid flex-1 grid-cols-2 grid-rows-2 gap-6">

@@ -8,7 +8,7 @@ const EXPRESS_APPLICATION_URL = "https://github.com/expressjs/express";
 export function ExpressDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={15}
+      slideNumber={13}
       sectionNum="04"
       title="Real-World Example"
       subtitle="Middleware in Express.js"
@@ -65,7 +65,7 @@ const PIPELINE_POINTS = [
 
 export function MiddlewarePipelineSlide() {
   return (
-    <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: PIPELINE">
+    <SlideLayout slideNumber={14} sectionLabel="WEB MIDDLEWARE: PIPELINE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">
@@ -130,7 +130,7 @@ const AUTH_POINTS = [
 
 export function AuthDecoratorSlide() {
   return (
-    <SlideLayout slideNumber={17} sectionLabel="WEB MIDDLEWARE: LOGIC">
+    <SlideLayout slideNumber={15} sectionLabel="WEB MIDDLEWARE: LOGIC">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The "Guard" Decorator</h2>
@@ -199,7 +199,7 @@ const STACKING_POINTS = [
 
 export function PipelineStackingSlide() {
   return (
-    <SlideLayout slideNumber={18} sectionLabel="WEB MIDDLEWARE: STACKING">
+    <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: STACKING">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Composing the Pipeline</h2>

@@ -9,7 +9,7 @@ const JAVA_SOURCE_URL =
 export function JavaDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={11}
+      slideNumber={9}
       sectionNum="03"
       title="Standard Library"
       subtitle="Java I/O Streams"
@@ -60,7 +60,7 @@ const FILTER_POINTS = [
 
 export function FilterInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={12} sectionLabel="JAVA I/O: FILTER">
+    <SlideLayout slideNumber={10} sectionLabel="JAVA I/O: FILTER">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Decorator Base</h2>
@@ -144,7 +144,7 @@ const BUFFERED_POINTS = [
 
 export function BufferedInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={13} sectionLabel="JAVA I/O: CONCRETE">
+    <SlideLayout slideNumber={11} sectionLabel="JAVA I/O: CONCRETE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Concrete Decorator</h2>
@@ -208,7 +208,7 @@ const USAGE_POINTS = [
 
 export function JavaUsageSlide() {
   return (
-    <SlideLayout slideNumber={14} sectionLabel="JAVA I/O: USAGE">
+    <SlideLayout slideNumber={12} sectionLabel="JAVA I/O: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage</h2>

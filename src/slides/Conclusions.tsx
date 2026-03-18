@@ -20,7 +20,7 @@ const PATTERNS = [
 
 export function ComparisonSlide() {
   return (
-    <SlideLayout slideNumber={23} sectionLabel="CONCLUSIONS">
+    <SlideLayout slideNumber={21} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-10">
         <h2 className="slide-enter text-accent text-5xl font-bold">Related Patterns</h2>
         <div className="grid flex-1 grid-cols-3 gap-8">
@@ -60,7 +60,7 @@ const TAKEAWAYS = [
 
 export function SummarySlide() {
   return (
-    <SlideLayout slideNumber={24} sectionLabel="CONCLUSIONS">
+    <SlideLayout slideNumber={22} sectionLabel="CONCLUSIONS">
       <div className="flex h-full flex-col gap-8">
         <h2 className="slide-enter text-accent text-4xl font-bold">Summary</h2>
         <div className="grid flex-1 grid-cols-3 gap-6">
@@ -108,7 +108,7 @@ function WrapSVG() {
 
 export function ThankYouSlide() {
   return (
-    <SlideLayout slideNumber={25}>
+    <SlideLayout slideNumber={23}>
       <div className="flex h-full flex-col items-center justify-center gap-8 text-center">
         <div className="slide-enter">
           <WrapSVG />
