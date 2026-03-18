@@ -123,7 +123,7 @@ const TOKEN_COLORS: Record<TokenType, string> = {
   plain: "#e0def4",
 };
 
-export function CodeBlock({ code, className = "", fontSize = "text-base" }: CodeBlockProps) {
+export function CodeBlock({ code, className = "", fontSize = "text-lg" }: CodeBlockProps) {
   const lines = code.split("\n");
 
   return (

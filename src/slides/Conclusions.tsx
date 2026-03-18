@@ -1,4 +1,5 @@
-import { SlideLayout, stagger } from "../components/SlideLayout";
+import { SlideLayout } from "../components/SlideLayout";
+import { stagger } from "../components/stagger";
 
 /* ── Slide 21 — Pattern Comparison ─────────────────────────────── */
 
@@ -94,10 +95,6 @@ export function SummarySlide() {
             </div>
           ))}
         </div>
-        <p className="slide-enter-delay-3 text-text-muted text-center text-base font-medium">
-          Used in React (HOCs, memo), Express (middleware), Java I/O streams, Python decorators, and
-          many more frameworks.
-        </p>
       </div>
     </SlideLayout>
   );
