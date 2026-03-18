@@ -2,9 +2,7 @@ export { TitleSlide, TOCSlide } from "./TitleAndTOC";
 export { ProblemSlide, SolutionSlide } from "./CoreProblem";
 export {
   DefinitionSlide,
-  ComponentsSlide,
   ClassDiagramSlide,
-  CodeExampleSlide,
   UseCasesSlide,
   AdvDisadvSlide,
 } from "./Theory";

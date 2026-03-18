@@ -68,16 +68,27 @@ export function ProblemSlide() {
 export function SolutionSlide() {
   return (
     <SlideLayout slideNumber={4} sectionLabel="THE CORE PROBLEM">
-      <div className="flex h-full flex-col items-center justify-center gap-12 text-center">
-        <h2 className="slide-enter text-accent text-5xl font-bold">
+      <div className="flex h-full flex-col items-center justify-center gap-8 text-center pb-4">
+        
+        <div className="slide-enter flex h-72 w-full max-w-4xl items-center justify-center rounded-xl overflow-hidden shadow-xl border border-border-card/50 bg-bg-card/20 p-4 shrink-0">
+          <img 
+            src="/solution.png" 
+            alt="Decorator Pattern Metaphor (Clothing)" 
+            className="h-full w-full object-contain rounded-lg"
+          />
+        </div>
+
+        <h2 className="slide-enter-delay-1 text-accent text-5xl font-bold">
           The Solution: Wrap, Don't Inherit
         </h2>
-        <p className="slide-enter-delay-1 text-text-muted max-w-3xl text-2xl leading-relaxed">
+        
+        <p className="slide-enter-delay-2 text-text-muted max-w-4xl text-2xl leading-relaxed">
           Wrap an object inside another object that adds behavior —{" "}
           <span className="text-text font-bold">at runtime</span>, without changing the original
           class or creating subclasses.
         </p>
-        <div className="slide-enter-delay-2 flex items-center gap-8">
+
+        <div className="slide-enter-delay-3 flex items-center gap-8 shrink-0">
           {[
             { label: "Object", bg: "bg-bg-card border-border-card" },
             { label: "Wrapper", bg: "bg-accent-light border-accent/30" },
@@ -86,7 +97,7 @@ export function SolutionSlide() {
             <div key={item.label} className="flex items-center gap-8">
               {i > 0 && <ArrowRight className="text-accent h-8 w-8" />}
               <div
-                className={`text-text rounded-xl border-2 px-10 py-5 text-2xl font-semibold ${item.bg}`}
+                className={`text-text rounded-xl border-2 px-10 py-4 text-xl font-semibold ${item.bg}`}
               >
                 {item.label}
               </div>

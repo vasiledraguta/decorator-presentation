@@ -1,5 +1,5 @@
 import { SlideLayout } from "../components/SlideLayout";
-import { CodeBlock } from "../components/CodeBlock";
+
 import { stagger } from "../components/stagger";
 import { CheckCircle, XCircle } from "lucide-react";
 
@@ -36,47 +36,6 @@ export function DefinitionSlide() {
   );
 }
 
-/* ── Slide 6 — Components ──────────────────────────────────────── */
-
-const COMPONENTS = [
-  {
-    label: "Component Interface",
-    desc: "Declares the common interface for both wrappers and wrapped objects.",
-  },
-  {
-    label: "Concrete Component",
-    desc: "The original object being decorated; defines the base behavior that can be altered.",
-  },
-  {
-    label: "Base Decorator",
-    desc: "Holds a reference to the wrapped component and delegates all work to it.",
-  },
-  {
-    label: "Concrete Decorator",
-    desc: "Adds extra behavior before or after delegating to the wrapped component's methods.",
-  },
-];
-
-export function ComponentsSlide() {
-  return (
-    <SlideLayout slideNumber={6} sectionLabel="THEORY">
-      <div className="flex h-full flex-col">
-        <h2 className="slide-enter text-accent mb-10 text-4xl font-bold">Components</h2>
-        <div className="grid flex-1 grid-cols-2 gap-6">
-          {COMPONENTS.map((c, idx) => (
-            <div
-              key={c.label}
-              className={`border-border-card bg-bg-card flex flex-col items-center justify-center gap-4 rounded-xl border p-8 text-center ${stagger(idx)}`}
-            >
-              <h3 className="text-accent text-3xl font-bold">{c.label}</h3>
-              <p className="text-text-muted text-xl leading-relaxed">{c.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </SlideLayout>
-  );
-}
 
 /* ── Slide 7 — Class Diagram ───────────────────────────────────── */
 
@@ -162,54 +121,54 @@ export function ClassDiagramSlide() {
     <SlideLayout slideNumber={7} sectionLabel="THEORY">
       <div className="flex h-full flex-col gap-6">
         <h2 className="slide-enter text-accent text-4xl font-bold">Class Diagram</h2>
-        <div className="slide-enter-delay-1 flex flex-1 items-center justify-center">
-          <svg viewBox="0 0 700 340" className="h-full w-full">
+        <div className="slide-enter-delay-1 flex min-h-0 flex-1 items-center justify-center">
+          <svg viewBox="0 0 660 340" className="max-h-full max-w-full object-contain">
             <UMLBox
-              x={260}
+              x={250}
               y={10}
-              w={180}
+              w={160}
               h={55}
-              title="Notifier"
+              title="Component"
               stereotype="«interface»"
-              fields={["+ send(msg: string): void"]}
+              fields={["+ draw(): void"]}
             />
             <UMLBox
-              x={80}
+              x={60}
               y={140}
-              w={170}
+              w={150}
               h={55}
-              title="BaseNotifier"
-              fields={["+ send(msg: string): void"]}
+              title="TextView"
+              fields={["+ draw(): void"]}
             />
             <UMLBox
-              x={440}
+              x={400}
               y={140}
-              w={180}
+              w={200}
               h={70}
-              title="BaseDecorator"
-              fields={["- wrappee: Notifier", "+ send(msg: string): void"]}
+              title="Decorator"
+              fields={["- wrappee: Component", "+ draw(): void"]}
             />
             <UMLBox
-              x={370}
+              x={310}
               y={270}
-              w={150}
+              w={160}
               h={50}
-              title="SMSDecorator"
-              fields={["+ send(msg: string)"]}
+              title="BorderDecorator"
+              fields={["+ draw(): void"]}
             />
             <UMLBox
-              x={540}
+              x={490}
               y={270}
-              w={150}
+              w={160}
               h={50}
-              title="SlackDecorator"
-              fields={["+ send(msg: string)"]}
+              title="ScrollDecorator"
+              fields={["+ draw(): void"]}
             />
 
             <line
-              x1={165}
+              x1={135}
               y1={140}
-              x2={300}
+              x2={290}
               y2={65}
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -217,7 +176,7 @@ export function ClassDiagramSlide() {
               markerEnd="url(#arrowOpen)"
             />
             <text
-              x={195}
+              x={190}
               y={96}
               fill="#9494a8"
               fontSize="9"
@@ -228,9 +187,9 @@ export function ClassDiagramSlide() {
             </text>
 
             <line
-              x1={530}
+              x1={500}
               y1={140}
-              x2={400}
+              x2={370}
               y2={65}
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -238,7 +197,7 @@ export function ClassDiagramSlide() {
               markerEnd="url(#arrowOpen)"
             />
             <text
-              x={462}
+              x={440}
               y={96}
               fill="#9494a8"
               fontSize="9"
@@ -249,7 +208,7 @@ export function ClassDiagramSlide() {
             </text>
 
             <path
-              d="M 620 155 C 660 155, 670 40, 440 35"
+              d="M 600 175 C 650 175, 650 35, 410 35"
               fill="none"
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -257,8 +216,8 @@ export function ClassDiagramSlide() {
               markerEnd="url(#arrowOpen)"
             />
             <text
-              x={618}
-              y={78}
+              x={615}
+              y={85}
               fill="#f59e0b"
               fontSize="10"
               fontWeight="700"
@@ -268,18 +227,18 @@ export function ClassDiagramSlide() {
             </text>
 
             <line
-              x1={445}
+              x1={390}
               y1={270}
-              x2={500}
+              x2={460}
               y2={210}
               stroke="#f59e0b"
               strokeWidth="1.5"
               markerEnd="url(#arrowClosed)"
             />
             <line
-              x1={615}
+              x1={570}
               y1={270}
-              x2={560}
+              x2={540}
               y2={210}
               stroke="#f59e0b"
               strokeWidth="1.5"
@@ -315,42 +274,7 @@ export function ClassDiagramSlide() {
   );
 }
 
-/* ── Slide 8 — Code Example ────────────────────────────────────── */
 
-const CODE_EXAMPLE = `interface Notifier {
-  send(msg: string): void;
-}
-class EmailNotifier implements Notifier {
-  send(msg: string) { console.log("Email:", msg); }
-}
-class NotifierDecorator implements Notifier {
-  constructor(protected wrappee: Notifier) {}
-  send(msg: string) { this.wrappee.send(msg); }
-}
-class SMSDecorator extends NotifierDecorator {
-  send(msg: string) { super.send(msg); console.log("SMS:", msg); }
-}
-class SlackDecorator extends NotifierDecorator {
-  send(msg: string) { super.send(msg); console.log("Slack:", msg); }
-}
-// Stack decorators freely:
-let notifier: Notifier = new EmailNotifier();
-notifier = new SMSDecorator(notifier);
-notifier = new SlackDecorator(notifier);
-notifier.send("Server is down!");`;
-
-export function CodeExampleSlide() {
-  return (
-    <SlideLayout slideNumber={8} sectionLabel="THEORY">
-      <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-accent text-4xl font-bold">Code Example</h2>
-        <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock code={CODE_EXAMPLE} fontSize="text-lg" className="h-full overflow-hidden" />
-        </div>
-      </div>
-    </SlideLayout>
-  );
-}
 
 /* ── Slide 9 — Use Cases ───────────────────────────────────────── */
 
