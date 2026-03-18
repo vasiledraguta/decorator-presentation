@@ -3,11 +3,13 @@ import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
 import { stagger } from "../components/stagger";
 
+const JAVA_SOURCE_URL = "https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/io/FilterInputStream.java";
+
 export function JavaDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={17}
-      sectionNum="05"
+      slideNumber={11}
+      sectionNum="03"
       title="Standard Library"
       subtitle="Java I/O Streams"
       tag="java.io — the classic example"
@@ -15,7 +17,7 @@ export function JavaDividerSlide() {
   );
 }
 
-/* ── Slide 18 — FilterInputStream ───────────────────────────── */
+/* ── Slide 12 — FilterInputStream ───────────────────────────── */
 
 const FILTER_INPUT_STREAM_CODE = `// Simplified from OpenJDK java.io.FilterInputStream
 public class FilterInputStream extends InputStream {
@@ -48,7 +50,7 @@ const FILTER_POINTS = [
 
 export function FilterInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={18} sectionLabel="JAVA I/O: FILTER">
+    <SlideLayout slideNumber={12} sectionLabel="JAVA I/O: FILTER">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Decorator Base</h2>
@@ -56,6 +58,18 @@ export function FilterInputStreamSlide() {
             FilterInputStream: The "Middleman" that holds the magic reference.
           </p>
         </div>
+        
+        <p className="slide-enter-delay-2 text-text-muted text-center text-base font-medium">
+          <a
+            href={JAVA_SOURCE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="ease hover:text-accent transition-colors duration-200"
+          >
+            Source: java.io.FilterInputStream on GitHub
+          </a>
+        </p>
+
         <div className="flex flex-1 gap-10 overflow-hidden">
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={FILTER_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
@@ -84,7 +98,7 @@ export function FilterInputStreamSlide() {
   );
 }
 
-/* ── Slide 19 — BufferedInputStream ──────────────────────────── */
+/* ── Slide 13 — BufferedInputStream ──────────────────────────── */
 
 const BUFFERED_INPUT_STREAM_CODE = `// Simplified from OpenJDK java.io.BufferedInputStream
 public class BufferedInputStream extends FilterInputStream {
@@ -120,7 +134,7 @@ const BUFFERED_POINTS = [
 
 export function BufferedInputStreamSlide() {
   return (
-    <SlideLayout slideNumber={19} sectionLabel="JAVA I/O: CONCRETE">
+    <SlideLayout slideNumber={13} sectionLabel="JAVA I/O: CONCRETE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">The Concrete Decorator</h2>
@@ -132,7 +146,7 @@ export function BufferedInputStreamSlide() {
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={BUFFERED_INPUT_STREAM_CODE} fontSize="text-lg" className="h-full" />
             {/* Arrow pointing to 'super(in);' which is line 6 */}
-            <div className="absolute top-[175px] left-[620px] flex items-center gap-2">
+            <div className="absolute top-[175px] left-[600px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
               <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Passing up the Chain
@@ -156,7 +170,7 @@ export function BufferedInputStreamSlide() {
   );
 }
 
-/* ── Slide 20 — Real World Usage ─────────────────────────────── */
+/* ── Slide 14 — Real World Usage ─────────────────────────────── */
 
 const REAL_USAGE_CODE = `// How we actually use it in Java
 InputStream file = new FileInputStream("data.zip");
@@ -184,7 +198,7 @@ const USAGE_POINTS = [
 
 export function JavaUsageSlide() {
   return (
-    <SlideLayout slideNumber={20} sectionLabel="JAVA I/O: USAGE">
+    <SlideLayout slideNumber={14} sectionLabel="JAVA I/O: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage</h2>
