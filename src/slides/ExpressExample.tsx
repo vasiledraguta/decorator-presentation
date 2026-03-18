@@ -1,6 +1,10 @@
 import { SectionDivider, SlideLayout } from "../components/SlideLayout";
 import { CodeBlock } from "../components/CodeBlock";
 import { ArrowLeft } from "lucide-react";
+import { stagger } from "../components/stagger";
+
+const EXPRESS_APPLICATION_URL =
+  "https://github.com/expressjs/express/blob/master/lib/application.js";
 
 export function ExpressDividerSlide() {
   return (
@@ -44,7 +48,7 @@ app.get("/api", (req, res) => {
 const PIPELINE_POINTS = [
   {
     label: "Functional Stacking",
-    desc: "In Express, the Component is your final Route Handler. Decorators are Middleware functions that wrap it.",
+    desc: "In Express, the Component is your final Route Handler. Decorators are Middleware functions that wrap the request.",
   },
   {
     label: "The Signature",
@@ -55,8 +59,8 @@ const PIPELINE_POINTS = [
     desc: "Logic is added before calling next(). If next() isn't called, the chain breaks (acting as a Guard).",
   },
   {
-    label: "Dynamic Composition",
-    desc: "Compose complex pipelines from simple, single-responsibility functions at runtime.",
+    label: "The Result",
+    desc: "You can dynamically compose a complex request pipeline from simple, single-responsibility functions.",
   },
 ];
 
@@ -115,7 +119,7 @@ const AUTH_POINTS = [
   },
   {
     label: "Delegation Mechanism",
-    desc: "The next() function is the mechanism of Delegation — conceptually identical to super.read().",
+    desc: "The next() function is the mechanism of Delegation — conceptually identical to super.read() in Java.",
   },
   {
     label: "Transparent Wrapping",
@@ -128,7 +132,7 @@ export function AuthDecoratorSlide() {
     <SlideLayout slideNumber={16} sectionLabel="WEB MIDDLEWARE: LOGIC">
       <div className="flex h-full flex-col gap-8">
         <div>
-          <h2 className="slide-enter text-accent text-4xl font-bold">Concrete Logic (Auth Decorator)</h2>
+          <h2 className="slide-enter text-accent text-4xl font-bold">The "Guard" Decorator</h2>
           <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
             Controlling access via delegation.
           </p>
@@ -137,14 +141,9 @@ export function AuthDecoratorSlide() {
           <div className="slide-enter-delay-2 relative flex w-[60%] flex-col">
             <CodeBlock code={AUTH_CODE} fontSize="text-lg" className="h-full" />
             
-            {/* Number Labels for Execution Order */}
-            <div className="absolute top-[85px] left-[40px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">1</div>
-            <div className="absolute top-[205px] left-[150px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">2</div>
-            <div className="absolute top-[305px] left-[40px] flex h-8 w-8 items-center justify-center rounded-full bg-accent font-bold text-bg shadow-lg">3</div>
-
-            <div className="absolute top-[200px] left-[250px] flex items-center gap-2">
+            <div className="absolute top-[250px] left-[550px] flex items-center gap-2">
               <ArrowLeft className="text-accent h-8 w-8 animate-pulse" />
-              <span className="bg-accent/10 border-accent/20 rounded-md border px-3 py-1 text-sm font-bold text-accent whitespace-nowrap">
+              <span className="bg-accent/10 border-accent/20 text-accent rounded-md border px-3 py-1 text-sm font-bold whitespace-nowrap">
                 Mechanism of Delegation
               </span>
             </div>
@@ -159,9 +158,6 @@ export function AuthDecoratorSlide() {
                 <p className="text-text-muted text-xl leading-relaxed">{p.desc}</p>
               </div>
             ))}
-          </div>
-          <div className="slide-enter-delay-2 flex w-1/2 flex-col">
-            <CodeBlock code={MIDDLEWARE_CODE} fontSize="text-lg" className="flex-1" />
           </div>
         </div>
       </div>
@@ -191,28 +187,21 @@ const STACKING_POINTS = [
     desc: "Attaching decorators to specific routes. Each layer is a 'Russian Doll' wrapping the core logic.",
   },
   {
-    label: "Clean Abstraction",
+    label: "Russian Doll Structure",
     desc: "To reach getProfile, the request must successfully pass through logging and auth.",
   },
   {
-    label: "Open/Closed",
+    label: "Open/Closed Principle",
     desc: "Add logging, auth, or caching without changing a single line of the getProfile logic.",
   },
 ];
 
 export function PipelineStackingSlide() {
   return (
-    <SlideLayout slideNumber={16} sectionLabel="REAL-WORLD: EXPRESS">
-      <div className="flex h-full flex-col gap-6">
-        <h2 className="slide-enter text-accent text-4xl font-bold">
-          express/lib/router — Decorator Chain
-        </h2>
-        <div className="slide-enter-delay-1 min-h-0 flex-1">
-          <CodeBlock code={COMPOSE_CODE} fontSize="text-lg" className="h-full" />
     <SlideLayout slideNumber={17} sectionLabel="WEB MIDDLEWARE: STACKING">
       <div className="flex h-full flex-col gap-8">
         <div>
-          <h2 className="slide-enter text-accent text-4xl font-bold">Real-World Usage (Stacking)</h2>
+          <h2 className="slide-enter text-accent text-4xl font-bold">Composing the Pipeline</h2>
           <p className="slide-enter-delay-1 text-text-muted mt-2 text-xl italic">
             Attaching decorators to specific routes.
           </p>
