@@ -105,15 +105,15 @@ const TOC_ITEMS = [
   },
   {
     num: "04",
-    title: "Express Middleware",
-    icon: Server,
-    desc: "Middleware chain in Express.js",
-  },
-  {
-    num: "05",
     title: "Python Decorators",
     icon: Terminal,
     desc: "Syntactic sugar & @ syntax",
+  },
+  {
+    num: "05",
+    title: "Express Middleware",
+    icon: Server,
+    desc: "Middleware chain in Express.js",
   },
   {
     num: "06",

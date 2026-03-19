@@ -8,8 +8,8 @@ const PYTHON_SOURCE_URL = "https://github.com/python/cpython/blob/main/Python/co
 export function PythonDividerSlide() {
   return (
     <SectionDivider
-      slideNumber={17}
-      sectionNum="05"
+      slideNumber={13}
+      sectionNum="04"
       title="Syntactic Sugar"
       subtitle="Python Decorators"
       tag={
@@ -55,7 +55,7 @@ const SUGAR_POINTS = [
 
 export function PythonSugarSlide() {
   return (
-    <SlideLayout slideNumber={18} sectionLabel="PYTHON: SYNTACTIC SUGAR">
+    <SlideLayout slideNumber={14} sectionLabel="PYTHON: SYNTACTIC SUGAR">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Python’s "Pie" Syntax</h2>
@@ -143,7 +143,7 @@ const TIMING_POINTS = [
 
 export function PythonImplementationSlide() {
   return (
-    <SlideLayout slideNumber={19} sectionLabel="PYTHON: IMPLEMENTATION">
+    <SlideLayout slideNumber={15} sectionLabel="PYTHON: IMPLEMENTATION">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">Anatomy of a Decorator</h2>
@@ -200,7 +200,7 @@ const PY_USAGE_POINTS = [
 
 export function PythonUsageSlide() {
   return (
-    <SlideLayout slideNumber={20} sectionLabel="PYTHON: USAGE">
+    <SlideLayout slideNumber={16} sectionLabel="PYTHON: USAGE">
       <div className="flex h-full flex-col gap-8">
         <div>
           <h2 className="slide-enter text-accent text-4xl font-bold">
