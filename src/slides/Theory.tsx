@@ -74,8 +74,8 @@ function UMLBox({
         width={w}
         height={h}
         rx="6"
-        fill="#16161e"
-        stroke="#f59e0b"
+        fill="#ffffff"
+        stroke="#d97706"
         strokeWidth="2"
       />
       <line
@@ -83,7 +83,7 @@ function UMLBox({
         y1={y + (stereotype ? 34 : 24)}
         x2={x + w}
         y2={y + (stereotype ? 34 : 24)}
-        stroke="#2a2a38"
+        stroke="#d1d5db"
         strokeWidth="1"
       />
       {stereotype && (
@@ -91,7 +91,7 @@ function UMLBox({
           x={x + w / 2}
           y={y + 15}
           textAnchor="middle"
-          fill="#f59e0b"
+          fill="#d97706"
           fontSize="10"
           fontFamily="DM Sans, system-ui"
           fontStyle="italic"
@@ -103,7 +103,7 @@ function UMLBox({
         x={x + w / 2}
         y={y + (stereotype ? 29 : 18)}
         textAnchor="middle"
-        fill="#f0eff4"
+        fill="#111827"
         fontSize="12"
         fontWeight="700"
         fontFamily="DM Sans, system-ui"
@@ -115,7 +115,7 @@ function UMLBox({
           key={i}
           x={x + 10}
           y={y + (stereotype ? 50 : 40) + i * 17}
-          fill="#9494a8"
+          fill="#4b5563"
           fontSize="10"
           fontFamily="Space Mono, ui-monospace, monospace"
         >
@@ -173,7 +173,7 @@ export function ClassDiagramSlide() {
               y1={140}
               x2={290}
               y2={65}
-              stroke="#f59e0b"
+              stroke="#d97706"
               strokeWidth="1.5"
               strokeDasharray="6 3"
               markerEnd="url(#arrowOpen)"
@@ -181,7 +181,7 @@ export function ClassDiagramSlide() {
             <text
               x={190}
               y={96}
-              fill="#9494a8"
+              fill="#4b5563"
               fontSize="9"
               fontWeight="600"
               fontFamily="DM Sans, system-ui"
@@ -194,7 +194,7 @@ export function ClassDiagramSlide() {
               y1={140}
               x2={370}
               y2={65}
-              stroke="#f59e0b"
+              stroke="#d97706"
               strokeWidth="1.5"
               strokeDasharray="6 3"
               markerEnd="url(#arrowOpen)"
@@ -202,7 +202,7 @@ export function ClassDiagramSlide() {
             <text
               x={440}
               y={96}
-              fill="#9494a8"
+              fill="#4b5563"
               fontSize="9"
               fontWeight="600"
               fontFamily="DM Sans, system-ui"
@@ -213,7 +213,7 @@ export function ClassDiagramSlide() {
             <path
               d="M 600 175 C 650 175, 650 35, 410 35"
               fill="none"
-              stroke="#f59e0b"
+              stroke="#d97706"
               strokeWidth="1.5"
               strokeDasharray="4 3"
               markerEnd="url(#arrowOpen)"
@@ -221,7 +221,7 @@ export function ClassDiagramSlide() {
             <text
               x={615}
               y={85}
-              fill="#f59e0b"
+              fill="#d97706"
               fontSize="10"
               fontWeight="700"
               fontFamily="DM Sans, system-ui"
@@ -234,7 +234,7 @@ export function ClassDiagramSlide() {
               y1={270}
               x2={460}
               y2={210}
-              stroke="#f59e0b"
+              stroke="#d97706"
               strokeWidth="1.5"
               markerEnd="url(#arrowClosed)"
             />
@@ -243,7 +243,7 @@ export function ClassDiagramSlide() {
               y1={270}
               x2={540}
               y2={210}
-              stroke="#f59e0b"
+              stroke="#d97706"
               strokeWidth="1.5"
               markerEnd="url(#arrowClosed)"
             />
@@ -257,7 +257,7 @@ export function ClassDiagramSlide() {
                 refY="3"
                 orient="auto"
               >
-                <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
+                <path d="M0,0 L8,3 L0,6" fill="none" stroke="#d97706" strokeWidth="1.5" />
               </marker>
               <marker
                 id="arrowClosed"
@@ -267,7 +267,7 @@ export function ClassDiagramSlide() {
                 refY="4"
                 orient="auto"
               >
-                <path d="M0,0 L10,4 L0,8 Z" fill="#f59e0b" />
+                <path d="M0,0 L10,4 L0,8 Z" fill="#d97706" />
               </marker>
             </defs>
           </svg>
