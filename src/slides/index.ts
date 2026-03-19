@@ -8,15 +8,15 @@ export {
   JavaUsageSlide,
 } from "./JavaExample";
 export {
-  ExpressDividerSlide,
-  MiddlewarePipelineSlide,
-  AuthDecoratorSlide,
-  PipelineStackingSlide,
-} from "./ExpressExample";
-export {
   PythonDividerSlide,
   PythonSugarSlide,
   PythonImplementationSlide,
   PythonUsageSlide,
 } from "./PythonExample";
+export {
+  ExpressDividerSlide,
+  MiddlewarePipelineSlide,
+  AuthDecoratorSlide,
+  PipelineStackingSlide,
+} from "./ExpressExample";
 export { ComparisonSlide, SummarySlide, ThankYouSlide } from "./Conclusions";
