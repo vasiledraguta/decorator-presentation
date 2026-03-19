@@ -115,12 +115,12 @@ function tokenize(line: string): Token[] {
 }
 
 const TOKEN_COLORS: Record<TokenType, string> = {
-  keyword: "#f59e0b",
-  string: "#34d399",
-  comment: "#5a5a72",
-  type: "#60a5fa",
-  punctuation: "#7a7a92",
-  plain: "#e0def4",
+  keyword: "#9333ea",
+  string: "#047857",
+  comment: "#6b7280",
+  type: "#2563eb",
+  punctuation: "#64748b",
+  plain: "#1e293b",
 };
 
 export function CodeBlock({ code, className = "", fontSize = "text-lg" }: CodeBlockProps) {
@@ -129,7 +129,7 @@ export function CodeBlock({ code, className = "", fontSize = "text-lg" }: CodeBl
   return (
     <div
       className={`border-border-card bg-code-bg overflow-auto rounded-xl border ${className}`}
-      style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.3)" }}
+      style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
     >
       <pre className={`p-7 leading-relaxed ${fontSize} font-mono`}>
         <code>
